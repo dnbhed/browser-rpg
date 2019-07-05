@@ -1,10 +1,13 @@
 package com.legends.browserrpg.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "characters")
-public class Character {
+public class Avatar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +31,17 @@ public class Character {
     @Column(name = "alive")
     private Boolean alive;
 
-    public Character() {
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "player_id", nullable = false)
+    private Player player;
+
+    public Avatar() {
     }
 
-    public Character(String name) {
+    public Avatar(String name, Player player) {
         this.name = name;
+        this.player = player;
         this.maxHP = 100;
         this.currentHP = 100;
         this.power = 50;
@@ -94,5 +103,14 @@ public class Character {
 
     public void setAlive(Boolean alive) {
         this.alive = alive;
+    }
+
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
