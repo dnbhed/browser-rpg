@@ -8,10 +8,13 @@ const NewCharacterContainer = () => {
 
     return(
         <Fragment>
-            <AvatarSelector/>
             <AvatarDisplay/>
+            <form className="comment-form" onSubmit={handleSubmit}>
+                <AvatarSelector/>
+                <NameInput/>
+                <input type="submit" value="Post" />
+            </form>
             <StartGameButton/>
-            <NameInput/>
         </Fragment>
     )
 
