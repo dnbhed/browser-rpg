@@ -2,11 +2,10 @@ import React, {Component, Fragment} from 'react'
 import NewCharacterButton from '../Components/StartScreenComponents/NewCharacterButton';
 import HighScoreDisplay from '../Components/HighScoreDisplay';
 
-const StartScreenContainer = () => {
+const PlayerSelectCharacterContainer = () => {
 
     return (
         <Fragment>
-            <h1>The Game</h1>
             <NewCharacterButton />
             <HighScoreDisplay />
         </Fragment>
@@ -16,4 +15,4 @@ const StartScreenContainer = () => {
 
 }
 
-export default StartScreenContainer
+export default PlayerSelectCharacterContainer
