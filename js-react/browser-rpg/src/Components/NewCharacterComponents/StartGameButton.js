@@ -11,4 +11,4 @@ const StartGameButton = () => {
 
 }
 
-export default NewCharacterButton
+export default StartGameButton
