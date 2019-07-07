@@ -1,6 +1,7 @@
 import React ,{Fragment} from 'react'
-import NewPlayerForm from '../Components/NewPlayerComponents/NewPlayerForm'
-import ConfirmNewPlayerButton from '../Components/NewPlayerComponents/ConfirmNewPlayerButton'
+import NewPlayerForm from '../Components/NewPlayerComponents/NewPlayerCreation/NewPlayerForm'
+import PlayerSelector from '../Components/NewPlayerComponents/PlayerSelector'
+import ConfirmSelectedPlayerButton from '../Components/NewPlayerComponents/ConfirmSelectedPlayer'
 
 const NewPlayerContainer = () => {
 
@@ -9,7 +10,6 @@ const NewPlayerContainer = () => {
        <Fragment>
            Helloo!!!! Player!!!
            <NewPlayerForm />
-           <ConfirmNewPlayerButton />
            <PlayerSelector />
            <ConfirmSelectedPlayerButton />
        </Fragment>
