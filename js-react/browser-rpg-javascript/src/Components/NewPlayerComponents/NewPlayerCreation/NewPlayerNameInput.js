@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 const NewPlayerNameInput = () => {
 
     return (
-        <input type="text">
-          Insert Player Name Here!!
-        </input>
+      <Fragment>
+        New Player Name:<input type="text" id="new-player-names"></input>
+      </Fragment>
     )
 }
 

@@ -5,9 +5,7 @@ const ConfirmNewPlayerButton = () => {
     // Create function which saves new Player and goes to NewCharacterScreen then add to onClick 
 
     return (
-        <button>
-            Create New Player
-        </button>
+        <input type="submit" value="Create Player"></input>
     )
 }
 
