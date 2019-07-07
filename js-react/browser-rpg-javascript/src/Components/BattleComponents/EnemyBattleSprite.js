@@ -5,10 +5,12 @@ import finalboss from '../../sprites/final-boss.gif'
 
 const EnemyBattleSprite = () => {
     return (
-        <Fragment>
-            <h3>HP: 100</h3>
+        <div id="enemy-sprite">
+            <h2>Mikey the Boss</h2>
             <img src={finalboss} height="200px" />
-        </Fragment>
+            <h3>HP: 100</h3>
+        </div>
+            
     )
 }
 

@@ -1,13 +1,14 @@
 import React, {Fragment} from 'react'
-import finalboss from '../../sprites/final-boss.gif'
+import joe from '../../sprites/joe.gif'
 
 
 const PlayerBattleSprite = () => {
     return(
-        <Fragment>
+        <div id="player-sprite">
+            <h2>Player 1</h2>
+            <img src={joe} height="200px" />
             <h3>HP: 100</h3>
-            <img src={finalboss} height="200px" />
-        </Fragment>
+        </div>
     )
 }
 

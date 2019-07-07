@@ -1,6 +1,8 @@
 import React, {Component, Fragment} from 'react'
 import PlayerBattleSprite from '../Components/BattleComponents/PlayerBattleSprite'
 import EnemyBattleSprite from '../Components/BattleComponents/EnemyBattleSprite'
+import ActionOptionsParent from '../Components/BattleComponents/ActionOptionsParent'
+import './BattleContainer.css'
 
 class BattleContainer extends Component{
     constructor(props){
@@ -12,9 +14,13 @@ class BattleContainer extends Component{
     render(){
         return(
             <Fragment>
-                <h1>Blah</h1>
-                <PlayerBattleSprite />
-                <EnemyBattleSprite />
+                <div id="battle-container">
+                    <h1>FIGHT!</h1>
+                    <PlayerBattleSprite />
+                    <EnemyBattleSprite />
+                    <ActionOptionsParent />
+                </div>
+                
             </Fragment>
         )
     }
