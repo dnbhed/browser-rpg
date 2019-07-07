@@ -1,15 +1,15 @@
 import React, {Fragment} from 'react'
 
-const AvatarSelector = () => {
+const AvatarSelector = ({spriteID}) => {
 
 
 
     return(
         <Fragment>
+            <label>Sprite ID</label>
             <input
             type="number"
-            value={}
-            onChange={}
+            value={spriteID}
             />
         </Fragment>
     )

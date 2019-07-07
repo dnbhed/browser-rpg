@@ -13,7 +13,7 @@ function NameInput() {
   return (
       <input
         type="text"
-        placeholder="Your name"
+        placeholder="Character name"
         value={name}
         onChange={handleNameChange}
       />

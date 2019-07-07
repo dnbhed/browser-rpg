@@ -3,9 +3,9 @@ import React from 'react'
 const StartGameButton = () => {
 
     return (
-        <button>
+        <h1 hidden>
             Confirm and Start Game
-        </button>
+        </h1>
     )
 
 
