@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import SelectPlayerButton from '../Components/StartScreenComponents/SelectPlayerButton'
+import './StartScreenContainer.css'
 
 const StartScreenContainer = () => {
 
