@@ -10,7 +10,7 @@ const NewPlayerCreationButton = () => {
     }
 
     return (
-        <button  onClick={revealNewPlayerForm}>
+        <button id="player-creation-button" onClick={revealNewPlayerForm}>
             Create New Player
         </button>
     )

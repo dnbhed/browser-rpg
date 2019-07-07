@@ -8,7 +8,7 @@ const NewPlayerForm = () => {
     return (
        <Fragment>
          <div id="new-player-form">
-           <form>
+           <form method="post">
              <NewPlayerNameInput />
              <ConfirmNewPlayerButton />
            </form>

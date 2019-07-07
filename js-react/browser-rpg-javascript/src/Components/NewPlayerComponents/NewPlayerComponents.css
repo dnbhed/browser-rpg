@@ -1,3 +1,14 @@
 div#new-player-form {
     display:none
+
+}
+
+button {
+    padding: 10px 16px;
+    background-color: brown
+}
+
+button#player-creation-button {
+    margin-left: auto ;
+    margin-right: auto ;
 }
