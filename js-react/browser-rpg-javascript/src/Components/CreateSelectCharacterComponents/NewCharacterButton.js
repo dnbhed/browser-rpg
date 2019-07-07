@@ -6,7 +6,7 @@ const NewCharacterButton = () => {
 
     return (
         <h2>
-            <Link to="/new-character">New Character</Link>
+            <Link to="/new-character">Create New Character</Link>
         </h2>
     )
 
