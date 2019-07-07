@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Fragment>
-        <Route path="/start" component={StartScreenContainer} />
+        <Route path="/" component={StartScreenContainer} />
         <Route path="/new-character" component={NewCharacterContainer} />
       </Fragment>
     </Router>
