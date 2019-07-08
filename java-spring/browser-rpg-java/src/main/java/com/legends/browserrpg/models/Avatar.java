@@ -31,7 +31,6 @@ public class Avatar {
     @Column(name = "alive")
     private Boolean alive;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = true)
     private Player player;

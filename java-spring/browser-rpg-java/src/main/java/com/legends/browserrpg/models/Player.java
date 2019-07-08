@@ -20,7 +20,6 @@ public class Player {
     @Column(name = "top_score")
     private int topScore;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "player", fetch = FetchType.LAZY)
     private List<Avatar> avatars;
 
