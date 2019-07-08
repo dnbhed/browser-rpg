@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
 @Repository
-public interface CharacterRepository extends JpaRepository<Avatar, Long> {
+public interface AvatarRepository extends JpaRepository<Avatar, Long> {
 
 
 

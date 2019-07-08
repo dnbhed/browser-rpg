@@ -32,7 +32,7 @@ class GameContainer extends Component{
     handleSubmit(event) {
         event.preventDefault();
         const url = 'http://localhost:8080/avatars'
-        const newCharacter = { name: event.target.name.value, player: this.state.currentPlayer }
+        const newCharacter = { name: event.target.name.value, player: this.state.currentPlayer._links.player.href }
         console.log(newCharacter);
         
         const headers = { 'Content-Type': 'application/json' }
@@ -41,8 +41,8 @@ class GameContainer extends Component{
             body: JSON.stringify(newCharacter),
             headers: headers
         })
-
     }
+
     handleClick(event) {
         this.setState({ newCharacterSpriteID: event.target.id })
     }
@@ -66,7 +66,6 @@ class GameContainer extends Component{
             body: JSON.stringify(newPlayer),
             headers: headers
         })
-  
     }
 
     setCurrentPlayer(index){
@@ -74,9 +73,9 @@ class GameContainer extends Component{
     }
 
     handleCurrentPlayerChange(event){
-        const playerIndex = event.target.value;
+        const playerIndex = event.target.value - 1 ;
+        console.log(playerIndex)
         this.setState({currentPlayer: this.state.players[playerIndex]})
-
     }
 
     componentDidUpdate(prevProps, prevState){
