@@ -1,13 +1,9 @@
 import React from 'react'
 
 const PlayerSelector = (props) => {
-
-  console.log(props)
-    
-    const playerList = props.players.map((player, index) => {
-      console.log(player);
       
-       return <option key={index} id={player.id}>
+    const playerList = props.players.map((player, index) => {
+       return <option key={index} value={index}>
           {player.name}
         </option>
     })

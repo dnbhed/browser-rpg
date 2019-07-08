@@ -55,10 +55,8 @@ class GameContainer extends Component{
     handleNewPlayerForm(event) {
         event.preventDefault();
 
-        console.log(event)
         const url = 'http://localhost:8080/players'
         const newPlayer = { name: event.target.name.value }
-        console.log(newPlayer)
         const headers = { 'Content-Type': 'application/json' }
         fetch(url, {
             method: 'POST',
@@ -66,15 +64,18 @@ class GameContainer extends Component{
             headers: headers
         })
 
+
     }
 
     handleCurrentPlayerChange(event){
-        const playerID = event.target.id;
-        fetch(`http://localhost:8080/players/${playerID}`)
-            .then(res => res.json())
-            .then(player => this.setState({ currentPlayer: player }))
-            .then(err => console.error)
-        console.log(this.state.currentPlayer)   
+        const playerIndex = event.target.value;
+
+        this.setState({currentPlayer: this.state.players[playerIndex]})
+        // fetch(`http://localhost:8080/players/${playerID}`)
+        //     .then(res => res.json())
+        //     .then(player => this.setState({ currentPlayer: player }))
+        //     .then(err => console.error)
+  
     }
 
     componentDidMount(){
