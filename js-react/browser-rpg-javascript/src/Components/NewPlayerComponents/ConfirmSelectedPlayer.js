@@ -1,15 +1,11 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const ConfirmSelectedPlayer = () => {
     
-    function handleClick(event){
-        event.preventDefault()
-    }
 
     return (
-        <button onClick={handleClick}>
-            Confirm Player
-        </button>
+        <Link to="/new-character"><h2>Confirm Player</h2></Link>
     )
 }
 

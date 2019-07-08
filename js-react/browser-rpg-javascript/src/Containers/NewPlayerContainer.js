@@ -12,11 +12,11 @@ const NewPlayerContainer = (props) => {
         <Fragment>
           <NewPlayerCreationButton />
           <NewPlayerForm />
-          <form>
+
             <PlayerSelector
-              players={props.players} />
+              players={props.players} changePlayer={props.changePlayer}/>
             <ConfirmSelectedPlayerButton />
-          </form>
+
         </Fragment>
       )
   
