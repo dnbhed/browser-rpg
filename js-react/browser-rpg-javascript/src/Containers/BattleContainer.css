@@ -1,0 +1,28 @@
+#battle-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: url('../sprites/gamebackground.png');
+    background-size: 1200px ;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+#player-sprite{
+    grid-row: 2;
+    grid-column: 2 / span 1;
+}
+
+#enemy-sprite{
+    grid-row: 2;
+    grid-column: 4 /span 1;
+}
+
+#attack{
+    grid-row: 3;
+    grid-column: 2
+}
+
+#defend{
+    grid-row: 3;
+    grid-column: 3
+}

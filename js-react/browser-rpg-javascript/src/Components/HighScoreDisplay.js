@@ -4,7 +4,7 @@ const HighScoreDisplay = () =>{
 
     return(
         <Fragment>
-            <h1>ALLO</h1>
+            <h1 id="high-score">High Score</h1>
         </Fragment>
     )
 }
