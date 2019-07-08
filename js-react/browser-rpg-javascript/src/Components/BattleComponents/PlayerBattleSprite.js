@@ -2,12 +2,14 @@ import React, {Fragment} from 'react'
 import joe from '../../sprites/joe.gif'
 
 
-const PlayerBattleSprite = () => {
+const PlayerBattleSprite = (props) => {
+    console.log(props)
+
     return(
         <div id="player-sprite">
             <h2>Player 1</h2>
             <img src={joe} height="200px" />
-            <h3>HP: 100</h3>
+            <h2>HP: {props.hp.currentHP}</h2>
         </div>
     )
 }

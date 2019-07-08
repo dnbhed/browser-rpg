@@ -16,12 +16,16 @@ public class Enemy {
     @Column(name = "max_hp")
     private int maxHP;
 
+    @Column(name = "current_hp")
+    private int currentHP;
+
     @Column(name = "power")
     private int power;
 
     public Enemy(String name) {
         this.name = name;
         this.maxHP = 120;
+        this.currentHP = maxHP;
         this.power = 30;
     }
 
@@ -58,5 +62,13 @@ public class Enemy {
 
     public void setPower(int power) {
         this.power = power;
+    }
+
+    public int getCurrentHP() {
+        return currentHP;
+    }
+
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
     }
 }

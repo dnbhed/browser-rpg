@@ -15,8 +15,8 @@ class GameContainer extends Component{
         this.state = {
             players: [],
             currentPlayer: {name:''},
-            currentCharacter: null,
-            currentEnemy: null,
+            currentCharacter: {currentHP:0},
+            currentEnemy: {currentHP:0},
             newCharacterName: '',
             newCharacterSpriteID: 0,
             newPlayerName: ''
@@ -28,6 +28,7 @@ class GameContainer extends Component{
         this.handleNewPlayerForm = this.handleNewPlayerForm.bind(this)
         this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
+        this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
     }
 
     handleSubmit(event) {
@@ -89,10 +90,25 @@ class GameContainer extends Component{
     }
 
     componentDidMount(){
-        fetch("http://localhost:8080/players")
+        fetch("http://localhost:8080/players/1")
             .then(res => res.json())
-            .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
+            .then(player => this.setState({ currentPlayer: player }))
             .then(err => console.error)
+
+        fetch("http://localhost:8080/avatars/1")
+            .then(res => res.json())
+            .then(avatar => this.setState({ currentCharacter: avatar }))
+            .then(err => console.error)
+
+        fetch("http://localhost:8080/enemies/1")
+            .then(res => res.json())
+            .then(enemy => this.setState({ currentEnemy: enemy }))
+            .then(err => console.error)
+    }
+
+    playerAttacksEnemy(){
+        const power = this.state.currentCharacter.power;
+        this.setState({currentEnemy: { currentHP: this.State.currentEnemy.currentHP -= power}} )
     }
 
     render(){
@@ -119,7 +135,13 @@ class GameContainer extends Component{
                         handleNameChange={this.handlePlayerNameChange}
                         />}
                         />
-                    <Route exact path="/battle" component={BattleContainer} />
+                    <Route exact path="/battle" 
+                        render={(props) => <BattleContainer {...props}
+                        character={this.state.currentCharacter} 
+                        enemy={this.state.currentEnemy}
+                        playerAttacksEnemy={this.playerAttacksEnemy}
+                        />}
+                        />
                     <Route exact path="/endgame"component={EndGameContainer} />
                 </Fragment>
             </Router>

@@ -3,12 +3,12 @@ import finalboss from '../../sprites/final-boss.gif'
 
 
 
-const EnemyBattleSprite = () => {
+const EnemyBattleSprite = (props) => {
     return (
         <div id="enemy-sprite">
             <h2>Mikey the Boss</h2>
             <img src={finalboss} height="200px" />
-            <h3>HP: 100</h3>
+            <h2>HP: {props.hp.currentHP}</h2>
         </div>
             
     )
