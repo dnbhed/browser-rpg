@@ -60,7 +60,6 @@ class GameContainer extends Component{
 
     handleNewPlayerForm(event) {
         event.preventDefault();
-
         const url = 'http://localhost:8080/players'
         const newPlayer = { name: event.target.name.value }
         const headers = { 'Content-Type': 'application/json' }
@@ -91,9 +90,9 @@ class GameContainer extends Component{
     }
 
     componentDidMount(){
-        fetch("http://localhost:8080/players/1")
+        fetch("http://localhost:8080/players")
             .then(res => res.json())
-            .then(player => this.setState({ currentPlayer: player }))
+            .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
             .then(err => console.error)
 
         fetch("http://localhost:8080/avatars/1")
@@ -131,6 +130,7 @@ class GameContainer extends Component{
                     <Route exact path="/select-player" 
                         render={(props) => <NewPlayerContainer {...props} 
                         players={this.state.players} 
+                        name={this.state.newPlayerName}
                         changePlayer={this.handleCurrentPlayerChange} 
                         handleSubmit={this.handleNewPlayerForm}
                         handleNameChange={this.handlePlayerNameChange}

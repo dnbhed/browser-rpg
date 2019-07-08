@@ -1,15 +1,13 @@
 import React, {Fragment} from 'react'
-import NewPlayerNameInput from './NewPlayerNameInput'
-import ConfirmNewPlayerButton from './ConfirmNewPlayerButtton'
 import '../NewPlayerComponents.css'
 
-const NewPlayerForm = (props) => {
+const NewPlayerForm = ({handleSubmit, handleNameChange, name}) => {
 
     return (
        <Fragment>
          <div id="new-player-form">
-          <form className="player-form" onSubmit={props.handleSubmit} >
-            <input id="name" type="text" placeholder="Player name" value={props.name} onChange={props.handleNameChange} />
+          <form className="player-form" onSubmit={handleSubmit} >
+            <input id="name" type="text" placeholder="Player name" value={name} onChange={handleNameChange} />
             <input type="submit" value="Create Player" />
           </form>
          </div>

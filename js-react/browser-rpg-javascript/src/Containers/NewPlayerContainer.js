@@ -4,17 +4,18 @@ import PlayerSelector from '../Components/NewPlayerComponents/PlayerSelector'
 import ConfirmSelectedPlayerButton from '../Components/NewPlayerComponents/ConfirmSelectedPlayer'
 import NewPlayerCreationButton from '../Components/NewPlayerComponents/NewPlayerCreationButton'
 
-const NewPlayerContainer = (props) => {
+const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChange, name}) => {
 
 
 
       return (
         <Fragment>
           <NewPlayerCreationButton />
-          <NewPlayerForm handleSubmit={props.handleSubmit} handleNameChange={props.handleNameChange}/>
+          <NewPlayerForm handleSubmit={handleSubmit} handleNameChange={handleNameChange}
+          name={name}/>
 
             <PlayerSelector
-              players={props.players} changePlayer={props.changePlayer}/>
+              players={players} changePlayer={changePlayer}/>
             <ConfirmSelectedPlayerButton />
 
         </Fragment>
