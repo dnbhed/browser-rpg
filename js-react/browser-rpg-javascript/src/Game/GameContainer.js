@@ -4,6 +4,7 @@ import NewCharacterContainer from '../Containers/NewCharacterContainer'
 import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterContainer'
 import BattleContainer from '../Containers/BattleContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import NewPlayerContainer from '../Containers/NewPlayerContainer';
 
 
 class GameContainer extends Component{
@@ -41,7 +42,10 @@ class GameContainer extends Component{
     }
 
     componentDidMount(){
-
+        fetch("http://localhost:8080/players")
+            .then(res => res.json())
+            .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
+            .then(err => console.error)
     }
 
     render(){
@@ -51,6 +55,7 @@ class GameContainer extends Component{
                     <Route exact path="/" component={StartScreenContainer} />
                     <Route path="/new-character" component={NewCharacterContainer} test="Hello World"/>
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
+                    <Route exact path="/select-player" component={NewPlayerContainer}/>
                     <Route exact path="/battle" component={BattleContainer} />
 
                 </Fragment>
