@@ -9,15 +9,13 @@ const NewCharacterContainer = (props) => {
             <AvatarDisplay handleClick={props.handleClick}/>
             <form className="character-form" onSubmit={props.handleSubmit} >
             <label>Sprite ID</label>
-            {/* <input id="Pog" type="number" value={this.state.spriteID} readOnly={true}/>
-            <input id= "name" type="text" placeholder="Character name" value ={this.state.name} onChange={props.handleNameChange}/> */}
-            <input type="submit" value="Create Characeter"/>
+            <input id="Pog" type="number" value={props.spriteID} readOnly={true}/>
+            <input id= "name" type="text" placeholder="Character name" value ={props.name} onChange={props.handleNameChange}/>
+            <input type="submit" value="Create Character"/>
             </form>
             <StartGameButton/>
         </Fragment>
         )
-
-
 }
 
 export default NewCharacterContainer

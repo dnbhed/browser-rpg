@@ -15,7 +15,9 @@ class GameContainer extends Component{
             players: [],
             currentPlayer: null,
             currentCharacter: null,
-            currentEnemy: null
+            currentEnemy: null,
+            newCharacterName: '',
+            newCharacterSpriteID: 0
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -23,6 +25,7 @@ class GameContainer extends Component{
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         const url = 'http://localhost:8080/characters'
         const newCharacter = { name: event.target.name.value, }
         const headers = { 'Content-Type': 'application/json' }
@@ -31,15 +34,14 @@ class GameContainer extends Component{
             body: JSON.stringify(newCharacter),
             headers: headers
         })
-        event.preventDefault();
 
     }
     handleClick(event) {
-        this.setState({ spriteID: event.target.id })
+        this.setState({ newCharacterSpriteID: event.target.id })
     }
 
     handleNameChange(event) {
-        this.setState({ name: event.target.value })
+        this.setState({ newCharacterName: event.target.value })
     }
 
     componentDidMount(){
@@ -54,7 +56,16 @@ class GameContainer extends Component{
             <Router>
                 <Fragment>
                     <Route exact path="/" component={StartScreenContainer} />
-                    <Route exact path="/new-character" component={NewCharacterContainer} test="Hello World"/>
+                    <Route exact path="/new-character" 
+                        render={(props) => 
+                        <NewCharacterContainer {...props} 
+                        spriteID={this.state.newCharacterSpriteID} 
+                        name={this.state.newCharacterName} 
+                        handleClick={this.handleClick} 
+                        handleNameChange={this.handleNameChange} 
+                        handleSubmit={this.handleSubmit}
+                        />}
+                        />
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/select-player" 
                         render={(props) => <NewPlayerContainer {...props} players={this.state.players}/>}
