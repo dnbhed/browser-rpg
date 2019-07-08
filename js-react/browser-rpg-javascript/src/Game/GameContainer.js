@@ -6,6 +6,7 @@ import BattleContainer from '../Containers/BattleContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import EndGameContainer from '../Containers/EndGameContainer';
 import NewPlayerContainer from '../Containers/NewPlayerContainer';
+import HomeScreenButton from '../Components/HomeScreenButton';
 
 
 class GameContainer extends Component{
@@ -142,7 +143,7 @@ class GameContainer extends Component{
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         />}
                         />
-                    <Route exact path="/endgame"component={EndGameContainer} />
+                    <Route path="/"component={HomeScreenButton} />    <Route exact path="/endgame"component={EndGameContainer} />
                 </Fragment>
             </Router>
         )
