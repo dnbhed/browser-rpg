@@ -16,8 +16,8 @@ class GameContainer extends Component{
         this.state = {
             players: [],
             currentPlayer: {name:''},
-            currentCharacter: {currentHP:0},
-            currentEnemy: {currentHP:0},
+            currentCharacter: null,
+            currentEnemy: null,
             newCharacterName: '',
             newCharacterSpriteID: 0,
             newPlayerName: ''
@@ -108,7 +108,11 @@ class GameContainer extends Component{
 
     playerAttacksEnemy(){
         const power = this.state.currentCharacter.power;
-        this.setState({currentEnemy: { currentHP: this.State.currentEnemy.currentHP -= power}} )
+        this.setState(prevState => {
+            let currentEnemy = { ...prevState.currentEnemy };  // creating copy of state variable jasper
+            currentEnemy.currentHP -= power;                     // update the name property, assign a new value                 
+            return { currentEnemy };                                 // return new object jasper object
+          })
     }
 
     render(){
