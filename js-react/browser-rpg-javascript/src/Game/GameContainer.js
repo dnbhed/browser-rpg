@@ -15,6 +15,33 @@ class GameContainer extends Component{
             currentCharacter: null,
             currentEnemy: null
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClick = this.handleClick.bind(this)
+        this.handleNameChange = this.handleNameChange.bind(this)
+    }
+
+    handleSubmit(event) {
+        const url = 'http://localhost:8080/characters'
+        const newCharacter = { name: event.target.name.value, }
+        const headers = { 'Content-Type': 'application/json' }
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(newCharacter),
+            headers: headers
+        })
+        event.preventDefault();
+
+    }
+    handleClick(event) {
+        this.setState({ spriteID: event.target.id })
+    }
+
+    handleNameChange(event) {
+        this.setState({ name: event.target.value })
+    }
+
+    componentDidMount(){
+
     }
 
     render(){
@@ -22,7 +49,7 @@ class GameContainer extends Component{
             <Router>
                 <Fragment>
                     <Route exact path="/" component={StartScreenContainer} />
-                    <Route path="/new-character" component={NewCharacterContainer} />
+                    <Route path="/new-character" component={NewCharacterContainer} test="Hello World"/>
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/battle" component={BattleContainer} />
 

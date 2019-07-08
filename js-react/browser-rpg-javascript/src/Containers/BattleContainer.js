@@ -4,14 +4,8 @@ import EnemyBattleSprite from '../Components/BattleComponents/EnemyBattleSprite'
 import ActionOptionsParent from '../Components/BattleComponents/ActionOptionsParent'
 import './BattleContainer.css'
 
-class BattleContainer extends Component{
-    constructor(props){
-        super(props)
-        this.state = {}
-    }
-
-
-    render(){
+const BattleContainer = (props) => {
+    
         return(
             <Fragment>
                 <div id="battle-container">
@@ -23,7 +17,7 @@ class BattleContainer extends Component{
                 
             </Fragment>
         )
-    }
+
 }
 
 export default BattleContainer
