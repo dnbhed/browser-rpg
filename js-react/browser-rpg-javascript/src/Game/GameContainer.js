@@ -5,6 +5,7 @@ import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterC
 import BattleContainer from '../Containers/BattleContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import EndGameContainer from '../Containers/EndGameContainer';
+import NewPlayerContainer from '../Containers/NewPlayerContainer';
 
 
 class GameContainer extends Component{
@@ -12,37 +13,86 @@ class GameContainer extends Component{
     constructor(props){
         super(props)
         this.state = {
-            currentPlayer: null,
+            players: [],
+            currentPlayer: {name:''},
             currentCharacter: null,
-            currentEnemy: null
+            currentEnemy: null,
+            newCharacterName: '',
+            newCharacterSpriteID: 0,
+            newPlayerName: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
         this.handleNameChange = this.handleNameChange.bind(this)
+        this.handleCurrentPlayerChange = this.handleCurrentPlayerChange.bind(this)
+        this.handleNewPlayerForm = this.handleNewPlayerForm.bind(this)
+        this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
+        this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
     }
 
     handleSubmit(event) {
-        const url = 'http://localhost:8080/characters'
-        const newCharacter = { name: event.target.name.value, }
+        event.preventDefault();
+        const url = 'http://localhost:8080/avatars'
+        const newCharacter = { name: event.target.name.value, player: this.state.currentPlayer._links.player.href }
+        console.log(newCharacter);
+        
         const headers = { 'Content-Type': 'application/json' }
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(newCharacter),
             headers: headers
         })
-        event.preventDefault();
-
     }
+
     handleClick(event) {
-        this.setState({ spriteID: event.target.id })
+        this.setState({ newCharacterSpriteID: event.target.id })
     }
 
     handleNameChange(event) {
-        this.setState({ name: event.target.value })
+        this.setState({ newCharacterName: event.target.value })
+    }
+
+    handlePlayerNameChange(event) {
+        this.setState({ newPlayerName: event.target.value })
+    }
+
+    handleNewPlayerForm(event) {
+        event.preventDefault();
+
+        const url = 'http://localhost:8080/players'
+        const newPlayer = { name: event.target.name.value }
+        const headers = { 'Content-Type': 'application/json' }
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(newPlayer),
+            headers: headers
+        })
+    }
+
+    setCurrentPlayer(index){
+        this.setState({ currentPlayer: this.state.players[index] })
+    }
+
+    handleCurrentPlayerChange(event){
+        const playerIndex = event.target.value - 1 ;
+        console.log(playerIndex)
+        this.setState({currentPlayer: this.state.players[playerIndex]})
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.players.length != this.state.players.length){
+            fetch("http://localhost:8080/players")
+                .then(res => res.json())
+                .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
+                .then(err => console.error)
+        }
     }
 
     componentDidMount(){
-
+        fetch("http://localhost:8080/players")
+            .then(res => res.json())
+            .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
+            .then(err => console.error)
     }
 
     render(){
@@ -50,14 +100,32 @@ class GameContainer extends Component{
             <Router>
                 <Fragment>
                     <Route exact path="/" component={StartScreenContainer} />
-                    <Route path="/new-character" component={NewCharacterContainer} test="Hello World"/>
+                    <Route exact path="/new-character" 
+                        render={(props) => 
+                        <NewCharacterContainer {...props} 
+                        spriteID={this.state.newCharacterSpriteID} 
+                        name={this.state.newCharacterName} 
+                        handleClick={this.handleClick} 
+                        handleNameChange={this.handleNameChange} 
+                        handleSubmit={this.handleSubmit}
+                        />}
+                        />
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
+                    <Route exact path="/select-player" 
+                        render={(props) => <NewPlayerContainer {...props} 
+                        players={this.state.players} 
+                        changePlayer={this.handleCurrentPlayerChange} 
+                        handleSubmit={this.handleNewPlayerForm}
+                        handleNameChange={this.handlePlayerNameChange}
+                        />}
+                        />
                     <Route exact path="/battle" component={BattleContainer} />
                     <Route exact path="/endgame"component={EndGameContainer} />
                 </Fragment>
             </Router>
         )
     }
+
 
 }
 

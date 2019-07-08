@@ -3,7 +3,7 @@ package com.legends.browserrpg.components;
 import com.legends.browserrpg.models.Avatar;
 import com.legends.browserrpg.models.Enemy;
 import com.legends.browserrpg.models.Player;
-import com.legends.browserrpg.repositories.characterRepository.CharacterRepository;
+import com.legends.browserrpg.repositories.characterRepository.AvatarRepository;
 import com.legends.browserrpg.repositories.enemyRepository.EnemyRepository;
 import com.legends.browserrpg.repositories.playerRepository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class DataLoader implements ApplicationRunner {
     PlayerRepository playerRepository;
 
     @Autowired
-    CharacterRepository characterRepository;
+    AvatarRepository avatarRepository;
 
     @Autowired
     EnemyRepository enemyRepository;
@@ -32,7 +32,7 @@ public class DataLoader implements ApplicationRunner {
         playerRepository.save(player);
 
         Avatar character = new Avatar("Steve", player);
-        characterRepository.save(character);
+        avatarRepository.save(character);
 
         Enemy enemy = new Enemy("Michael 'the Job' Forbes");
         enemyRepository.save(enemy);

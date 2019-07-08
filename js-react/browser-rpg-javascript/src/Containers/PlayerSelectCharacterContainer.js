@@ -7,14 +7,13 @@ import './PlayerSelectCharacterContainer.css'
 const PlayerSelectCharacterContainer = () => {
 
     return (
-        <Fragment>
+
             <div id="content">
                 <NewCharacterButton />
                 <SelectExistingCharacterButton />
                 <HighScoreDisplay />
             </div>
-            
-        </Fragment>
+
     ) 
 
 

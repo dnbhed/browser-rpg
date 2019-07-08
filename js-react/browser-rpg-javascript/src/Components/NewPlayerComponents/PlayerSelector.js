@@ -1,17 +1,15 @@
 import React from 'react'
 
-const PlayerSelector = ({players}) => {
+const PlayerSelector = (props) => {
 
-  console.log(players)
-    
-    const playerList = players.map((player, index) => {
-       return <option key={index} value={player.id}>
+    const playerList = props.players.map((player, index) => {
+       return <option key={index} value={player.id} >
           {player.name}
         </option>
     })
 
     return (
-       <select id="player-select" defaultValue="default">
+       <select id="player-select" defaultValue="default" onChange={props.changePlayer}>
          <option disabled value="default">
          Select Player
          </option>

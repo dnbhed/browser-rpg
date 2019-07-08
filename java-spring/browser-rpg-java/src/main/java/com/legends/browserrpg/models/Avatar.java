@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "characters")
+@Table(name = "avatars")
 public class Avatar {
 
     @Id
@@ -33,20 +33,23 @@ public class Avatar {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "player_id", nullable = false)
+    @JoinColumn(name = "player_id", nullable = true)
     private Player player;
 
-    public Avatar() {
-    }
 
     public Avatar(String name, Player player) {
         this.name = name;
-        this.player = player;
         this.maxHP = 100;
         this.currentHP = 100;
         this.power = 50;
         this.score = 0;
         this.alive = true;
+        this.player = player;
+
+    }
+
+    public Avatar() {
+
     }
 
     public Long getId() {
