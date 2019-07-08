@@ -4,6 +4,7 @@ import NewCharacterContainer from '../Containers/NewCharacterContainer'
 import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterContainer'
 import BattleContainer from '../Containers/BattleContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import EndGameContainer from '../Containers/EndGameContainer';
 
 
 class GameContainer extends Component{
@@ -52,7 +53,7 @@ class GameContainer extends Component{
                     <Route path="/new-character" component={NewCharacterContainer} test="Hello World"/>
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/battle" component={BattleContainer} />
-
+                    <Route exact path="/endgame"component={EndGameContainer} />
                 </Fragment>
             </Router>
         )
