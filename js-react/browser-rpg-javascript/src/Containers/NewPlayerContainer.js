@@ -11,7 +11,7 @@ const NewPlayerContainer = (props) => {
       return (
         <Fragment>
           <NewPlayerCreationButton />
-          <NewPlayerForm />
+          <NewPlayerForm handleSubmit={props.handleSubmit} handleNameChange={props.handleNameChange}/>
 
             <PlayerSelector
               players={props.players} changePlayer={props.changePlayer}/>
