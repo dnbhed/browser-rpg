@@ -12,6 +12,7 @@ class GameContainer extends Component{
     constructor(props){
         super(props)
         this.state = {
+            players: [],
             currentPlayer: null,
             currentCharacter: null,
             currentEnemy: null
@@ -53,15 +54,17 @@ class GameContainer extends Component{
             <Router>
                 <Fragment>
                     <Route exact path="/" component={StartScreenContainer} />
-                    <Route path="/new-character" component={NewCharacterContainer} test="Hello World"/>
+                    <Route exact path="/new-character" component={NewCharacterContainer} test="Hello World"/>
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
-                    <Route exact path="/select-player" component={NewPlayerContainer}/>
+                    <Route exact path="/select-player" 
+                        render={(props) => <NewPlayerContainer {...props} players={this.state.players}/>}
+                        />
                     <Route exact path="/battle" component={BattleContainer} />
-
                 </Fragment>
             </Router>
         )
     }
+
 
 }
 

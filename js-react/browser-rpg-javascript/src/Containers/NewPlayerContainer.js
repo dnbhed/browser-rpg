@@ -6,18 +6,20 @@ import NewPlayerCreationButton from '../Components/NewPlayerComponents/NewPlayer
 
 const NewPlayerContainer = (props) => {
 
+  console.log(props)
+
       return (
         <Fragment>
-            <NewPlayerCreationButton />
-            <NewPlayerForm />
-            <form>
-              {/* <PlayerSelector 
-              players = {this.state.players} /> */}
-              <ConfirmSelectedPlayerButton />
-            </form>
+          <NewPlayerCreationButton />
+          <NewPlayerForm />
+          <form>
+            <PlayerSelector
+              players={props.players} />
+            <ConfirmSelectedPlayerButton />
+          </form>
         </Fragment>
-
-        )
+      )
+  
 
 }
 
