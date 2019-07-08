@@ -6,7 +6,7 @@ import NewPlayerCreationButton from '../Components/NewPlayerComponents/NewPlayer
 
 const NewPlayerContainer = (props) => {
 
-  console.log(props)
+
 
       return (
         <Fragment>

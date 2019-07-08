@@ -13,7 +13,7 @@ class GameContainer extends Component{
         super(props)
         this.state = {
             players: [],
-            currentPlayer: null,
+            currentPlayer: {name:''},
             currentCharacter: null,
             currentEnemy: null,
             newCharacterName: '',
@@ -26,12 +26,15 @@ class GameContainer extends Component{
         this.handleCurrentPlayerChange = this.handleCurrentPlayerChange.bind(this)
         this.handleNewPlayerForm = this.handleNewPlayerForm.bind(this)
         this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
+        this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        const url = 'http://localhost:8080/characters'
-        const newCharacter = { name: event.target.value, }
+        const url = 'http://localhost:8080/avatars'
+        const newCharacter = { name: event.target.name.value, player: this.state.currentPlayer }
+        console.log(newCharacter);
+        
         const headers = { 'Content-Type': 'application/json' }
         fetch(url, {
             method: 'POST',
@@ -63,19 +66,26 @@ class GameContainer extends Component{
             body: JSON.stringify(newPlayer),
             headers: headers
         })
+  
+    }
 
-
+    setCurrentPlayer(index){
+        this.setState({ currentPlayer: this.state.players[index] })
     }
 
     handleCurrentPlayerChange(event){
         const playerIndex = event.target.value;
-
         this.setState({currentPlayer: this.state.players[playerIndex]})
-        // fetch(`http://localhost:8080/players/${playerID}`)
-        //     .then(res => res.json())
-        //     .then(player => this.setState({ currentPlayer: player }))
-        //     .then(err => console.error)
-  
+
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(prevState.players.length != this.state.players.length){
+            fetch("http://localhost:8080/players")
+                .then(res => res.json())
+                .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
+                .then(err => console.error)
+        }
     }
 
     componentDidMount(){

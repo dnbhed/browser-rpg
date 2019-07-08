@@ -33,7 +33,7 @@ public class Avatar {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "player_id", nullable = false)
+    @JoinColumn(name = "player_id", nullable = true)
     private Player player;
 
     public Avatar() {
