@@ -34,9 +34,8 @@ class GameContainer extends Component{
     handleSubmit(event) {
         event.preventDefault();
         const url = 'http://localhost:8080/avatars'
-        const newCharacter = { name: event.target.name.value, player: this.state.currentPlayer._links.player.href }
-        console.log(newCharacter);
-        
+        const newCharacter = { name: event.target.name.value, maxHP: event.target.hp.value, currentHP: event.target.hp.value, power: event.target.power.value, spriteID: event.target.spriteID.value, alive: true, score: 0, player: this.state.currentPlayer._links.player.href }
+        this.setState({currentCharacter: newCharacter})
         const headers = { 'Content-Type': 'application/json' }
         fetch(url, {
             method: 'POST',
