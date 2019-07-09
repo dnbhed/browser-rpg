@@ -20,7 +20,7 @@ class GameContainer extends Component{
             currentEnemy: {alive: true},
             newCharacterName: '',
             newCharacterSpriteID: 0,
-            newPlayerName: ''
+            createdNewPlayer: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -30,7 +30,6 @@ class GameContainer extends Component{
         this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
         this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
-        this.win = this.win.bind(this)
     }
 
     handleSubmit(event) {
@@ -69,6 +68,7 @@ class GameContainer extends Component{
             body: JSON.stringify(newPlayer),
             headers: headers
         })
+        this.setState({createdNewPlayer: true})
     }
 
     setCurrentPlayer(index){
@@ -82,11 +82,12 @@ class GameContainer extends Component{
     }
 
     componentDidUpdate(prevProps, prevState){
-        if(prevState.players.length != this.state.players.length){
+        if(this.state.createdNewPlayer === true){
             fetch("http://localhost:8080/players")
                 .then(res => res.json())
                 .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
                 .then(err => console.error)
+                this.setState({createdNewPlayer:false})
         }
     }
 
@@ -124,48 +125,37 @@ class GameContainer extends Component{
         }
     }
 
-    win(){
-        
-    }
-
     render(){
-
-        if (this.state.currentEnemy.alive === false){
-            return(
-            <Switch>
-                <Redirect to="/endgame"/>
-            </Switch>
-            )
-        }
 
         return(
             <Router>
                 <Fragment>
                     <Route exact path="/" component={StartScreenContainer} />
-                    <Route exact path="/new-character" 
-                        render={(props) => 
-                        <NewCharacterContainer {...props} 
-                            spriteID={this.state.newCharacterSpriteID} 
-                            name={this.state.newCharacterName} 
-                            handleClick={this.handleClick} 
-                            handleNameChange={this.handleNameChange} 
-                            handleSubmit={this.handleSubmit}
-                        />}
-                        />
-                    <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/select-player" 
                         render={(props) => <NewPlayerContainer {...props} 
                         players={this.state.players} 
-                        name={this.state.newPlayerName}
+                        currentPlayer={this.state.currentPlayer}
                         changePlayer={this.handleCurrentPlayerChange} 
                         handleSubmit={this.handleNewPlayerForm}
                         handleNameChange={this.handlePlayerNameChange}
                         />}
                         />
+                    <Route exact path="/new-character" 
+                        render={(props) => 
+                        <NewCharacterContainer {...props} 
+                            currentPlayer={this.state.currentPlayer}
+                            
+                            spriteID={this.state.newCharacterSpriteID} 
+                            handleClick={this.handleClick} 
+                            handleSubmit={this.handleSubmit}
+                        />}
+                        />
+                    <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/battle" 
                         render={(props) => <BattleContainer {...props}
-                        character={this.state.currentCharacter} 
-                        enemy={this.state.currentEnemy}
+                        currentPlayer={this.state.currentPlayer}
+                        currentCharacter={this.state.currentCharacter} 
+                        currentEnemy={this.state.currentEnemy}
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         />}
                         />
@@ -175,8 +165,6 @@ class GameContainer extends Component{
             </Router>
         )
     }
-
-
 }
 
 export default GameContainer
