@@ -3,7 +3,7 @@ import StartScreenContainer from '../Containers/StartScreenContainer'
 import NewCharacterContainer from '../Containers/NewCharacterContainer'
 import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterContainer'
 import BattleContainer from '../Containers/BattleContainer'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import EndGameContainer from '../Containers/EndGameContainer';
 import NewPlayerContainer from '../Containers/NewPlayerContainer';
 import HomeScreenButton from '../Components/HomeScreenButton';
@@ -131,7 +131,11 @@ class GameContainer extends Component{
     render(){
 
         if (this.state.currentEnemy.alive === false){
-            return <Redirect to="/endgame"/>
+            return(
+            <Switch>
+                <Redirect to="/endgame"/>
+            </Switch>
+            )
         }
 
         return(

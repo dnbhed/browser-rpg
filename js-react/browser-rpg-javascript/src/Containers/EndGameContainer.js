@@ -1,16 +1,16 @@
 import React, {Fragment} from 'react'
-import EndGameCharacterScoreDisplay from '../Components/EndGameComponents/EndGameCharacterScoreDisplay';
-import EndGameContinueGame from '../Components/EndGameComponents/EndGameContinueGame';
-import EndGameSaveButton from '../Components/EndGameComponents/EndGameSaveButton';
+import {Link} from 'react-router-dom'
+
 
 const EndGameContainer = () => {
 
 
     return (
         <Fragment>
-           <EndGameCharacterScoreDisplay />
-           <EndGameSaveButton />
-           <EndGameContinueGame />
+            <h1>You Win. Epic Time!</h1>
+           <Link to='/'>
+              <h2>Continue?</h2>
+            </Link>
         </Fragment>
     )
 }

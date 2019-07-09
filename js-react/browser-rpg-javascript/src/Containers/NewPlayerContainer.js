@@ -1,8 +1,8 @@
 import React ,{Component, Fragment} from 'react'
-import NewPlayerForm from '../Components/NewPlayerComponents/NewPlayerCreation/NewPlayerForm'
+import NewPlayerForm from '../Components/NewPlayerComponents/NewPlayerForm'
 import PlayerSelector from '../Components/NewPlayerComponents/PlayerSelector'
 import ConfirmSelectedPlayerButton from '../Components/NewPlayerComponents/ConfirmSelectedPlayer'
-import NewPlayerCreationButton from '../Components/NewPlayerComponents/NewPlayerCreationButton'
+import './NewPlayerContainer.css'
 
 const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChange, name}) => {
 
@@ -10,7 +10,9 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChan
 
       return (
         <Fragment>
-          <NewPlayerCreationButton />
+          <button id="player-creation-button" onClick={revealNewPlayerForm} className="new-player-form">
+            Create New Player
+          </button>
           <NewPlayerForm handleSubmit={handleSubmit} handleNameChange={handleNameChange}
           name={name}/>
 

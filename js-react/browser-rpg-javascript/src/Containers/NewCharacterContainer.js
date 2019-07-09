@@ -1,6 +1,6 @@
 import React ,{Fragment} from 'react'
 import AvatarDisplay from '../Components/NewCharacterComponents/AvatarDisplay'
-import StartGameButton from '../Components/NewCharacterComponents/StartGameButton'
+import {Link} from 'react-router-dom'
 
 const NewCharacterContainer = ({spriteID, name, handleClick,handleNameChange,handleSubmit}) => {
 
@@ -13,7 +13,7 @@ const NewCharacterContainer = ({spriteID, name, handleClick,handleNameChange,han
             <input id= "name" type="text" placeholder="Character name" value ={name} onChange={handleNameChange}/>
             <input type="submit" value="Create Character"/>
             </form>
-            <StartGameButton/>
+            <h1 id="start-game-button" ><Link to="/battle">FIGHT</Link></h1>
         </Fragment>
         )
 }
