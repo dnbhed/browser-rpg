@@ -19,8 +19,8 @@ class GameContainer extends Component{
             currentCharacter: null,
             currentEnemy: {alive: true},
             newCharacterName: '',
-            newCharacterSpriteID: 0
-           
+            newCharacterSpriteID: 0,
+            createdNewPlayer: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -68,6 +68,7 @@ class GameContainer extends Component{
             body: JSON.stringify(newPlayer),
             headers: headers
         })
+        this.setState({createdNewPlayer: true})
     }
 
     setCurrentPlayer(index){
@@ -81,11 +82,12 @@ class GameContainer extends Component{
     }
 
     componentDidUpdate(prevProps, prevState){
-        if(prevState.players.length != this.state.players.length){
+        if(this.state.createdNewPlayer === true){
             fetch("http://localhost:8080/players")
                 .then(res => res.json())
                 .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
                 .then(err => console.error)
+                this.setState({createdNewPlayer:false})
         }
     }
 

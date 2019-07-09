@@ -2,9 +2,7 @@ import React from 'react'
 
 const PlayerSelector = ({players, changePlayer}) => {
 
-   console.log(players);
    
-   // if(!props._embedded) return null
     const playerList = players.map((player, index) => {
        return <option key={index} value={player.id} >
           {player.name}
