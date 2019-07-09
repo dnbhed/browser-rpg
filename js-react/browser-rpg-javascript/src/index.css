@@ -13,11 +13,12 @@ code {
     monospace;
 }
 
-a {
+.button-link {
   text-decoration: none;
+  color: fuchsia;
 }
 
-button {
+/* button {
   border-top: 1px solid #9e00ed;
   background: #8365d6;
   background: -webkit-gradient(linear, left top, left bottom from(#943e9c), to(#8365d6));
@@ -47,7 +48,7 @@ button:hover {
 button:active {
   border-top-color: #4e1b5c;
   background: #4e1b5c;
-  }
+  } */
 
 #end-game-container {
 font-family: 'Press Start 2P', cursive;
@@ -57,4 +58,34 @@ font-size: 20px;
 text-shadow: 2px 2px 0px #BA2FB5;
 padding: 20px;
 margin-top: 100px;
+}
+
+.start-game-button {
+  padding: 20px;
+  margin-top: 80px;
+}
+
+#select-player-button {
+  width: 210px;
+  height: 70px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: rgb(77, 36, 134);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+#select-player-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
