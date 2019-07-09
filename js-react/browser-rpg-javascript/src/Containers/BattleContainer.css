@@ -1,10 +1,7 @@
 #battle-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    /* background: url('../images/1-2.jpg');
-    background-size: 1200px ;
-    background-repeat: no-repeat;
-    background-position: center;  */
+
 }
 
 #player-sprite{

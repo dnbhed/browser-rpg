@@ -18,18 +18,17 @@ class GameContainer extends Component{
             currentPlayer: {name:''},
             currentCharacter: null,
             currentEnemy: {alive: true},
-            newCharacterName: '',
             newCharacterSpriteID: 0,
-            createdNewPlayer: false
+            createdNewPlayer: false,
+            playerIsDefending: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleClick = this.handleClick.bind(this)
-        this.handleNameChange = this.handleNameChange.bind(this)
         this.handleCurrentPlayerChange = this.handleCurrentPlayerChange.bind(this)
         this.handleNewPlayerForm = this.handleNewPlayerForm.bind(this)
-        this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
         this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
+        this.enemyAttacksPlayer = this.enemyAttacksPlayer.bind(this)
+        this.playerDefends = this.playerDefends.bind(this)
     }
 
     handleSubmit(event) {
@@ -44,18 +43,6 @@ class GameContainer extends Component{
             body: JSON.stringify(newCharacter),
             headers: headers
         })
-    }
-
-    handleClick(event) {
-        this.setState({ newCharacterSpriteID: event.target.id })
-    }
-
-    handleNameChange(event) {
-        this.setState({ newCharacterName: event.target.value })
-    }
-
-    handlePlayerNameChange(event) {
-        this.setState({ newPlayerName: event.target.value })
     }
 
     handleNewPlayerForm(event) {
@@ -109,11 +96,13 @@ class GameContainer extends Component{
     }
 
     playerAttacksEnemy(){
+        this.setState({ playerIsDefending: false })
+       
         const power = this.state.currentCharacter.power;
         if(!(this.state.currentEnemy.currentHP - power <= 0)){
             this.setState(prevState => {
                 const currentEnemy = { ...prevState.currentEnemy }
-                currentEnemy.currentHP -= power;                  
+                currentEnemy.currentHP -= power;                             
                 return { currentEnemy };
             })
         }else {
@@ -121,6 +110,47 @@ class GameContainer extends Component{
                 const currentEnemy = { ...prevState.currentEnemy}
                 currentEnemy.alive = false;
                 return {currentEnemy};
+            })
+        }
+    }
+
+    enemyAttacksPlayer(){
+        let power= 0;
+        if(!this.state.playerIsDefending){
+            power = this.state.currentEnemy.power;
+        } else{
+            power = this.state.currentEnemy.power - 20;
+        }
+        if (!(this.state.currentCharacter.currentHP - power <= 0)) {
+            this.setState(prevState => {
+                const currentCharacter = { ...prevState.currentCharacter }
+                currentCharacter.currentHP -= power;
+                return { currentCharacter };
+            })
+        } else {
+            this.setState(prevState => {
+                const currentCharacter = { ...prevState.currentCharacter }
+                currentCharacter.alive = false;
+                return { currentCharacter };
+            })
+        }
+    }
+
+    playerDefends(){
+        this.setState({playerIsDefending: true})
+
+        const power = this.state.currentCharacter.power;
+        if (!(this.state.currentEnemy.currentHP - (power - 30) <= 0)) {
+            this.setState(prevState => {
+                const currentEnemy = { ...prevState.currentEnemy }
+                currentEnemy.currentHP -= (power - 30);
+                return { currentEnemy };
+            })
+        } else {
+            this.setState(prevState => {
+                const currentEnemy = { ...prevState.currentEnemy }
+                currentEnemy.alive = false;
+                return { currentEnemy };
             })
         }
     }
@@ -157,6 +187,8 @@ class GameContainer extends Component{
                         currentCharacter={this.state.currentCharacter} 
                         currentEnemy={this.state.currentEnemy}
                         playerAttacksEnemy={this.playerAttacksEnemy}
+                        enemyAttacksPlayer={this.enemyAttacksPlayer}
+                        playerDefends={this.playerDefends}
                         />}
                         />
                     <Route path="/"component={HomeScreenButton} />   

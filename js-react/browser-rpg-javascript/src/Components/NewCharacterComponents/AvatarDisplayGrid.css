@@ -6,3 +6,7 @@
     grid-column-end: 2;
     grid-template-columns: auto auto auto;
   }
+
+img{
+  height: 150px
+}
