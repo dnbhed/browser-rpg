@@ -1,7 +1,11 @@
-#select-player-button{
-    border: 3px;
-    border-radius: 5px;
-    background: grey;
-    text-align: center;
-    text-justify: center;
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+.start-screen {
+font-family: 'Press Start 2P', cursive;
+text-align: center;
+color: rgb(77, 36, 134);
+font-size: 48px;
+text-shadow: 2px 2px 0px #BA2FB5;
+padding: 20px;
+margin-top: 100px;
 }

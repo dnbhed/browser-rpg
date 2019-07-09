@@ -5,10 +5,10 @@ import './StartScreenContainer.css'
 const StartScreenContainer = () => {
 
     return (
-        <Fragment>
+        <div className="start-screen">
             <h1>The game</h1>
             <SelectPlayerButton/>
-        </Fragment>
+        </div>
     )
 }
 
