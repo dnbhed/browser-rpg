@@ -10,7 +10,7 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChan
 
       return (
         <Fragment>
-          <button id="player-creation-button" onClick={revealNewPlayerForm} className="new-player-form">
+          <button id="player-creation-button" className="new-player-form">
             Create New Player
           </button>
           <NewPlayerForm handleSubmit={handleSubmit} handleNameChange={handleNameChange}

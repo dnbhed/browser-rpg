@@ -124,19 +124,7 @@ class GameContainer extends Component{
         }
     }
 
-    win(){
-        
-    }
-
     render(){
-
-        if (this.state.currentEnemy.alive === false){
-            return(
-            <Switch>
-                <Redirect to="/endgame"/>
-            </Switch>
-            )
-        }
 
         return(
             <Router>
@@ -175,8 +163,6 @@ class GameContainer extends Component{
             </Router>
         )
     }
-
-
 }
 
 export default GameContainer

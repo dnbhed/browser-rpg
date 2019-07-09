@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import '../NewPlayerComponents.css'
+
 
 const NewPlayerForm = ({handleSubmit, handleNameChange, name}) => {
 
