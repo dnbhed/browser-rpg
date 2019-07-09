@@ -20,7 +20,7 @@ a {
 button {
   border-top: 1px solid #9e00ed;
   background: #8365d6;
-  background: -webkit-gradient(linear, left top, left bottom, from(#943e9c), to(#8365d6));
+  background: -webkit-gradient(linear, left top, left bottom from(#943e9c), to(#8365d6));
   background: -webkit-linear-gradient(top, #943e9c, #8365d6);
   background: -moz-linear-gradient(top, #943e9c, #8365d6);
   background: -ms-linear-gradient(top, #943e9c, #8365d6);
