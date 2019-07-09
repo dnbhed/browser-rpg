@@ -3,7 +3,7 @@ import React, {Fragment} from 'react'
 const EndGameCharacterScoreDisplay = () => {
     return (
         <Fragment>
-            Test
+            <h1>You win Epic</h1>
         </Fragment>
     )
 }

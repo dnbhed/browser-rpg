@@ -3,7 +3,7 @@ import StartScreenContainer from '../Containers/StartScreenContainer'
 import NewCharacterContainer from '../Containers/NewCharacterContainer'
 import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterContainer'
 import BattleContainer from '../Containers/BattleContainer'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import EndGameContainer from '../Containers/EndGameContainer';
 import NewPlayerContainer from '../Containers/NewPlayerContainer';
 import HomeScreenButton from '../Components/HomeScreenButton';
@@ -17,7 +17,7 @@ class GameContainer extends Component{
             players: [],
             currentPlayer: {name:''},
             currentCharacter: null,
-            currentEnemy: null,
+            currentEnemy: {alive: true},
             newCharacterName: '',
             newCharacterSpriteID: 0,
             newPlayerName: ''
@@ -30,6 +30,7 @@ class GameContainer extends Component{
         this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
         this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
+        this.win = this.win.bind(this)
     }
 
     handleSubmit(event) {
@@ -108,14 +109,31 @@ class GameContainer extends Component{
 
     playerAttacksEnemy(){
         const power = this.state.currentCharacter.power;
-        this.setState(prevState => {
-            let currentEnemy = { ...prevState.currentEnemy };  // creating copy of state variable jasper
-            currentEnemy.currentHP -= power;                     // update the name property, assign a new value                 
-            return { currentEnemy };                                 // return new object jasper object
-          })
+        if(!(this.state.currentEnemy.currentHP - power <= 0)){
+            this.setState(prevState => {
+                const currentEnemy = { ...prevState.currentEnemy }
+                currentEnemy.currentHP -= power;                  
+                return { currentEnemy };
+            })
+        }else {
+            this.setState(prevState => {
+                const currentEnemy = { ...prevState.currentEnemy}
+                currentEnemy.alive = false;
+                return {currentEnemy};
+            })
+        }
+    }
+
+    win(){
+        
     }
 
     render(){
+
+        if (this.state.currentEnemy.alive === false){
+            return <Redirect to="/endgame"/>
+        }
+
         return(
             <Router>
                 <Fragment>
@@ -123,11 +141,11 @@ class GameContainer extends Component{
                     <Route exact path="/new-character" 
                         render={(props) => 
                         <NewCharacterContainer {...props} 
-                        spriteID={this.state.newCharacterSpriteID} 
-                        name={this.state.newCharacterName} 
-                        handleClick={this.handleClick} 
-                        handleNameChange={this.handleNameChange} 
-                        handleSubmit={this.handleSubmit}
+                            spriteID={this.state.newCharacterSpriteID} 
+                            name={this.state.newCharacterName} 
+                            handleClick={this.handleClick} 
+                            handleNameChange={this.handleNameChange} 
+                            handleSubmit={this.handleSubmit}
                         />}
                         />
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
@@ -147,7 +165,8 @@ class GameContainer extends Component{
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         />}
                         />
-                    <Route path="/"component={HomeScreenButton} />    <Route exact path="/endgame"component={EndGameContainer} />
+                    <Route path="/"component={HomeScreenButton} />   
+                    <Route exact path="/endgame"component={EndGameContainer} />
                 </Fragment>
             </Router>
         )

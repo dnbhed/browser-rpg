@@ -22,11 +22,15 @@ public class Enemy {
     @Column(name = "power")
     private int power;
 
+    @Column(name = "alive")
+    private boolean alive;
+
     public Enemy(String name) {
         this.name = name;
         this.maxHP = 120;
         this.currentHP = maxHP;
         this.power = 30;
+        this.alive = true;
     }
 
     public Enemy() {
@@ -70,5 +74,13 @@ public class Enemy {
 
     public void setCurrentHP(int currentHP) {
         this.currentHP = currentHP;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 }
