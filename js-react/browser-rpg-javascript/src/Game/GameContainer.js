@@ -142,6 +142,7 @@ class GameContainer extends Component{
                         render={(props) => 
                         <NewCharacterContainer {...props} 
                             currentPlayer={this.state.currentPlayer}
+                            
                             spriteID={this.state.newCharacterSpriteID} 
                             handleClick={this.handleClick} 
                             handleSubmit={this.handleSubmit}
@@ -151,9 +152,8 @@ class GameContainer extends Component{
                     <Route exact path="/battle" 
                         render={(props) => <BattleContainer {...props}
                         currentPlayer={this.state.currentPlayer}
-                        currentCharacter={this.state.currentCharacter}
-                        character={this.state.currentCharacter} 
-                        enemy={this.state.currentEnemy}
+                        currentCharacter={this.state.currentCharacter} 
+                        currentEnemy={this.state.currentEnemy}
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         />}
                         />
