@@ -13,7 +13,7 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChan
           <button id="player-creation-button" className="new-player-form">
             Create New Player
           </button>
-          <NewPlayerForm handleSubmit={handleSubmit} handleNameChange={handleNameChange}
+          <NewPlayerForm handleSubmit={handleSubmit} 
           name={name}/>
 
             <PlayerSelector

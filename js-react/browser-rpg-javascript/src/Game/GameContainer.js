@@ -19,8 +19,8 @@ class GameContainer extends Component{
             currentCharacter: null,
             currentEnemy: {alive: true},
             newCharacterName: '',
-            newCharacterSpriteID: 0,
-            newPlayerName: ''
+            newCharacterSpriteID: 0
+           
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -135,7 +135,6 @@ class GameContainer extends Component{
                             spriteID={this.state.newCharacterSpriteID} 
                             name={this.state.newCharacterName} 
                             handleClick={this.handleClick} 
-                            handleNameChange={this.handleNameChange} 
                             handleSubmit={this.handleSubmit}
                         />}
                         />
@@ -143,7 +142,6 @@ class GameContainer extends Component{
                     <Route exact path="/select-player" 
                         render={(props) => <NewPlayerContainer {...props} 
                         players={this.state.players} 
-                        name={this.state.newPlayerName}
                         changePlayer={this.handleCurrentPlayerChange} 
                         handleSubmit={this.handleNewPlayerForm}
                         handleNameChange={this.handlePlayerNameChange}
