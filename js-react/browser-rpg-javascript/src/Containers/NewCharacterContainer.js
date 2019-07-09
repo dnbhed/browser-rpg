@@ -1,15 +1,21 @@
 import React ,{Fragment, useState} from 'react'
 import AvatarDisplay from '../Components/NewCharacterComponents/AvatarDisplay'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
-const NewCharacterContainer = ({spriteID, handleClick, handleSubmit}) => {
+const NewCharacterContainer = ({spriteID, handleClick, handleSubmit, currentPlayer}) => {
 
+    
     const [newName, setNewName] = useState("")
-
+    
     function handleNameChange(event){
         setNewName(event.target.value)
     }
-
+    
+    if (currentPlayer.name !== "") {
+        return (
+            <Redirect to="/" />
+        )
+    }
         return(
           <Fragment>
             <AvatarDisplay handleClick={handleClick}/>

@@ -132,6 +132,7 @@ class GameContainer extends Component{
                     <Route exact path="/select-player" 
                         render={(props) => <NewPlayerContainer {...props} 
                         players={this.state.players} 
+                        currentPlayer={this.state.currentPlayer}
                         changePlayer={this.handleCurrentPlayerChange} 
                         handleSubmit={this.handleNewPlayerForm}
                         handleNameChange={this.handlePlayerNameChange}
@@ -140,6 +141,7 @@ class GameContainer extends Component{
                     <Route exact path="/new-character" 
                         render={(props) => 
                         <NewCharacterContainer {...props} 
+                            currentPlayer={this.state.currentPlayer}
                             spriteID={this.state.newCharacterSpriteID} 
                             handleClick={this.handleClick} 
                             handleSubmit={this.handleSubmit}
@@ -148,6 +150,8 @@ class GameContainer extends Component{
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/battle" 
                         render={(props) => <BattleContainer {...props}
+                        currentPlayer={this.state.currentPlayer}
+                        currentCharacter={this.state.currentCharacter}
                         character={this.state.currentCharacter} 
                         enemy={this.state.currentEnemy}
                         playerAttacksEnemy={this.playerAttacksEnemy}

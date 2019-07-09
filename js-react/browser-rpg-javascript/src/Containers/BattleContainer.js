@@ -14,6 +14,12 @@ const BattleContainer = (props) => {
             <Redirect to="/endgame" />
         )
     }
+
+    if (!props.currentPlayer.topScore || !props.currentCharacter.player_id) {
+        return (
+            <Redirect to="/" />
+        )
+    }
     
         return(
             <Fragment>

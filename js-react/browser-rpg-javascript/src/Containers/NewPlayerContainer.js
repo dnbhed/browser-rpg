@@ -1,10 +1,10 @@
-import React ,{Component, Fragment} from 'react'
+import React ,{Fragment} from 'react'
 import NewPlayerForm from '../Components/NewPlayerComponents/NewPlayerForm'
 import PlayerSelector from '../Components/NewPlayerComponents/PlayerSelector'
 import ConfirmSelectedPlayerButton from '../Components/NewPlayerComponents/ConfirmSelectedPlayer'
 import './NewPlayerContainer.css'
 
-const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChange, name}) => {
+const NewPlayerContainer = ({players, changePlayer, handleSubmit}) => {
 
 
 
@@ -13,8 +13,7 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit, handleNameChan
           <button id="player-creation-button" className="new-player-form">
             Create New Player
           </button>
-          <NewPlayerForm handleSubmit={handleSubmit} 
-          name={name}/>
+          <NewPlayerForm handleSubmit={handleSubmit} />
 
             <PlayerSelector
               players={players} changePlayer={changePlayer}/>
