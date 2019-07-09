@@ -15,7 +15,9 @@ const BattleContainer = (props) => {
         )
     }
 
-    if (!props.currentPlayer.topScore || !props.currentCharacter.player_id) {
+    debugger
+
+    if (!props.currentPlayer.id || !props.character.maxHP) {
         return (
             <Redirect to="/" />
         )

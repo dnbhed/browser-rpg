@@ -11,7 +11,7 @@ const NewCharacterContainer = ({spriteID, handleClick, handleSubmit, currentPlay
         setNewName(event.target.value)
     }
     
-    if (currentPlayer.name !== "") {
+    if (!currentPlayer.id) {
         return (
             <Redirect to="/" />
         )
