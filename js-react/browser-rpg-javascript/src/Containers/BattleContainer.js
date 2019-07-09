@@ -15,7 +15,6 @@ const BattleContainer = (props) => {
         )
     }
 
-    debugger
 
     if (!props.currentPlayer.id || !props.character.maxHP) {
         return (
