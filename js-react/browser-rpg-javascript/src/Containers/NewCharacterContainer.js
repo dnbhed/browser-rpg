@@ -85,7 +85,7 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
             </form>
                 <h1>Selected Sprite</h1>
                 <img src={sprites[sprite - 1]} />
-            <h1 id="start-game-button" ><Link to="/battle">FIGHT</Link></h1>
+            <button id="start-game-button" ><Link to="/battle">FIGHT</Link></button>
           </Fragment>
         )
 }

@@ -45,7 +45,7 @@ const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerA
             <Fragment>
                 <div id="battle-container">
                     <h1>FIGHT!</h1>
-                    <PlayerBattleSprite hp={currentCharacter}/>
+                    <PlayerBattleSprite currentCharacter={currentCharacter}/>
                     <EnemyBattleSprite hp={currentEnemy}/>
                     <button id="attack" onClick={attack}>Attack!</button>
                     <button id="defend" onClick={defend}>Defend!</button>
