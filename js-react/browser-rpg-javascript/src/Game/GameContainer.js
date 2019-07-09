@@ -129,16 +129,6 @@ class GameContainer extends Component{
             <Router>
                 <Fragment>
                     <Route exact path="/" component={StartScreenContainer} />
-                    <Route exact path="/new-character" 
-                        render={(props) => 
-                        <NewCharacterContainer {...props} 
-                            spriteID={this.state.newCharacterSpriteID} 
-                            name={this.state.newCharacterName} 
-                            handleClick={this.handleClick} 
-                            handleSubmit={this.handleSubmit}
-                        />}
-                        />
-                    <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/select-player" 
                         render={(props) => <NewPlayerContainer {...props} 
                         players={this.state.players} 
@@ -147,6 +137,15 @@ class GameContainer extends Component{
                         handleNameChange={this.handlePlayerNameChange}
                         />}
                         />
+                    <Route exact path="/new-character" 
+                        render={(props) => 
+                        <NewCharacterContainer {...props} 
+                            spriteID={this.state.newCharacterSpriteID} 
+                            handleClick={this.handleClick} 
+                            handleSubmit={this.handleSubmit}
+                        />}
+                        />
+                    <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/battle" 
                         render={(props) => <BattleContainer {...props}
                         character={this.state.currentCharacter} 
