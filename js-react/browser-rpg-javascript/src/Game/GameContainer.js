@@ -30,7 +30,6 @@ class GameContainer extends Component{
         this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
         this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
-        this.win = this.win.bind(this)
     }
 
     handleSubmit(event) {
