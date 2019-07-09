@@ -1,10 +1,10 @@
 #battle-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    background: url('../sprites/gamebackground.png');
+    /* background: url('../images/1-2.jpg');
     background-size: 1200px ;
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;  */
 }
 
 #player-sprite{
@@ -26,3 +26,4 @@
     grid-row: 3;
     grid-column: 3
 }
+

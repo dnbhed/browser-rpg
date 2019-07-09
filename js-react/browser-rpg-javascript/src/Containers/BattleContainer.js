@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import PlayerBattleSprite from '../Components/BattleComponents/PlayerBattleSprite'
 import EnemyBattleSprite from '../Components/BattleComponents/EnemyBattleSprite'
-import ActionOptionsParent from '../Components/BattleComponents/ActionOptionsParent'
 import './BattleContainer.css'
 
 const BattleContainer = (props) => {
