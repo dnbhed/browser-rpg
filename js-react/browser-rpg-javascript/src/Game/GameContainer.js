@@ -18,17 +18,13 @@ class GameContainer extends Component{
             currentPlayer: {name:''},
             currentCharacter: null,
             currentEnemy: {alive: true},
-            newCharacterName: '',
             newCharacterSpriteID: 0,
             createdNewPlayer: false,
             playerIsDefending: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleClick = this.handleClick.bind(this)
-        this.handleNameChange = this.handleNameChange.bind(this)
         this.handleCurrentPlayerChange = this.handleCurrentPlayerChange.bind(this)
         this.handleNewPlayerForm = this.handleNewPlayerForm.bind(this)
-        this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
         this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
         this.enemyAttacksPlayer = this.enemyAttacksPlayer.bind(this)
@@ -47,18 +43,6 @@ class GameContainer extends Component{
             body: JSON.stringify(newCharacter),
             headers: headers
         })
-    }
-
-    handleClick(event) {
-        this.setState({ newCharacterSpriteID: event.target.id })
-    }
-
-    handleNameChange(event) {
-        this.setState({ newCharacterName: event.target.value })
-    }
-
-    handlePlayerNameChange(event) {
-        this.setState({ newPlayerName: event.target.value })
     }
 
     handleNewPlayerForm(event) {

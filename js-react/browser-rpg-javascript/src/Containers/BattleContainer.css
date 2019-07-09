@@ -1,7 +1,14 @@
 #battle-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+<<<<<<< HEAD
     
+=======
+    background: url('');
+    background-size: 1200px ;
+    background-repeat: no-repeat;
+    background-position: center; 
+>>>>>>> develop
 }
 
 #player-sprite{
