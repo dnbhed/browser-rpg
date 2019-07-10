@@ -11,8 +11,17 @@ const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerA
     const [playerTurn, setPlayerTurn] = useState(true);
     
     if (currentEnemy.alive === false) {
+        console.log(currentEnemy.currentHP)
         resetEnemy();
         accumulateScore();
+        return (
+            <Redirect to="/endgame" />
+        )
+    }
+
+    if (currentCharacter.alive === false) {
+        console.log(currentCharacter.currentHP)
+        resetEnemy();
         return (
             <Redirect to="/endgame" />
         )

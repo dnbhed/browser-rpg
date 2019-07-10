@@ -219,7 +219,6 @@ class GameContainer extends Component{
                         />
                     <Route path="/"component={HomeScreenButton} />   
                     <Route exact path="/endgame"render={(props) => <EndGameContainer {...props}
-                    currentCharacterScore={this.state.currentCharacter.score}
                     currentCharacterPlayer={this.state.currentCharacter}
                     currentPlayer={this.state.currentPlayer}
                     />} 
