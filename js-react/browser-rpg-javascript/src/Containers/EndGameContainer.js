@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import trophy from "../sprites/trophy.gif";
 
@@ -27,8 +27,8 @@ const EndGameContainer = ({ currentCharacter, currentPlayer }) => {
             {printStatus()}
             <h1>Your new score is {currentCharacter.score}</h1>
             <img src={trophy} width="480px" height="480px" className="trophy" />
-            <Link to="/">
-                <h2>Continue?</h2>
+            <Link to="/battle">
+                <h1>Continue?</h1>
             </Link>
         </div>
     );
