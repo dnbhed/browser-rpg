@@ -45,6 +45,7 @@ const BattleContainer = ({
 		setTimeout(() => {
 			setEnemyDamaged(false);
 			playerAttacksEnemy();
+			if(currentEnemy.currentHP - currentPlayer.power <=0) return
 			setPlayerDamaged(true);
 			setTimeout(() => {
 				setPlayerDamaged(false);
