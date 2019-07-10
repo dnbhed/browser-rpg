@@ -1,12 +1,29 @@
 .grid-container {
-    display: inline-grid;
+    display: flex;
     grid-column-gap: 50px;
     grid-row-gap: 50px;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-template-columns: auto auto auto;
+    margin-top: 100px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
   }
 
 .grid-container img{
-  height: 150px
+  height: 150px;
+  width: 150px;
+}
+
+.select-sprite {
+  padding: 20px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: black;
+  font-size: 30px;
+  text-shadow: 2px 2px 0px darkviolet;
+  padding: 20px;
 }

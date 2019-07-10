@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import './AvatarDisplayGrid.css';
 import joe from '../../sprites/joe.gif'
 import alison from '../../sprites/alison.gif'
@@ -8,8 +8,8 @@ import alex from '../../sprites/alex.gif'
 const AvatarDisplay = ({handleClick}) => {
 
     return(
-        <Fragment>
             <div className="grid-container" onClick={handleClick}>
+                <h1 className="select-sprite">Select Sprite</h1>
             <div className="grid-item"  >
                 < img id="1" src={joe}/>
             </div>
@@ -25,10 +25,7 @@ const AvatarDisplay = ({handleClick}) => {
             <div className="grid-item" id="5">5</div>
             <div className="grid-item" id="6">6</div>
             </div>
-
-        </Fragment>
     )
-
 }
 
 export default AvatarDisplay
