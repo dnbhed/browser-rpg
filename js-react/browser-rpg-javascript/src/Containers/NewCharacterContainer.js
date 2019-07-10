@@ -6,10 +6,11 @@ import joe from "../sprites/joe.gif";
 import alison from "../sprites/alison.gif";
 import kenny from "../sprites/kenny.gif";
 import alex from "../sprites/alex.gif";
+import CurrentPlayerCharacter from "../Components/CurrentPlayerCharacter";
+import characterCreation from "../sounds/CharacterCreation.mp3";
 
-const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, changeCharacter}) => {
+const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, currentCharacter, changeCharacter}) => {
 
-   
 
 	const sprites = [joe, alison, kenny, alex];
 	const [newName, setNewName] = useState("");
@@ -65,6 +66,7 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, changeC
 		<Fragment>
             <CharacterSelector characters={characters}  currentPlayer={currentPlayer} changeCharacter={changeCharacter}/>
 			<AvatarDisplay handleClick={handleSpriteChange} />
+			<audio src={characterCreation} autoPlay loop={true} />
 			<form className="character-form" onSubmit={handleSubmit}>
 				<label>Sprite ID</label>
 				<input
@@ -87,21 +89,35 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, changeC
 
 				<label>HP: </label>
 				<input id="hp" type="number" value={hp} readOnly={true} />
-				<button onClick={spendPointsOnHP}>Add 5 HP</button>
-				<button onClick={removePointsFromHP}>Remove 5 HP</button>
+				<h3 className="increment-button" onClick={spendPointsOnHP}>
+					Add 5 HP
+				</h3>
+				<h3 className="increment-button" onClick={removePointsFromHP}>
+					Remove 5 HP
+				</h3>
 
 				<label>Power: </label>
 				<input id="power" type="number" value={power} readOnly={true} />
-				<button onClick={spendPointsOnPower}>Add 5 Power</button>
-				<button onClick={removePointsFromPower}>Remove 5 Power</button>
+				<h3 className="increment-button" onClick={spendPointsOnPower}>
+					Add 5 Power
+				</h3>
+				<h3 className="increment-button" onClick={removePointsFromPower}>
+					Remove 5 Power
+				</h3>
 
-                <input type="submit" value="Create Character"/>
-            </form>
-                <h1>Selected Sprite</h1>
-                <img src={sprites[sprite - 1]} />
-            <button id="start-game-button" ><Link to="/battle">FIGHT</Link></button>
-          </Fragment>    
-        )
-}
+				<input type="submit" value="Create Character" />
+			</form>
+			<h1>Selected Sprite</h1>
+			<img src={sprites[sprite - 1]} />
+			<button id="start-game-button">
+				<Link to="/battle">FIGHT</Link>
+			</button>
+			<CurrentPlayerCharacter
+				currentPlayer={currentPlayer}
+				currentCharacter={currentCharacter}
+			/>
+		</Fragment>
+	);
+};
 
 export default NewCharacterContainer;

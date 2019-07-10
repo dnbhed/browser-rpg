@@ -10,12 +10,14 @@ const PlayerSelector = ({players, changePlayer}) => {
     })
 
     return (
-       <select id="player-select" defaultValue="default" onChange={changePlayer}>
+       <div className="select-container">
+       <select className="player-select" defaultValue="default" onChange={changePlayer}>
          <option disabled value="default">
          Select Player
          </option>
          {playerList}
        </select> 
+       </div>
     )
 }
 

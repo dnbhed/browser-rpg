@@ -3,11 +3,9 @@ import StartScreenContainer from '../Containers/StartScreenContainer'
 import NewCharacterContainer from '../Containers/NewCharacterContainer'
 import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterContainer'
 import BattleContainer from '../Containers/BattleContainer'
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import EndGameContainer from '../Containers/EndGameContainer';
 import NewPlayerContainer from '../Containers/NewPlayerContainer';
-import HomeScreenButton from '../Components/HomeScreenButton';
-import CurrentPlayerCharacter from '../Components/CurrentPlayerCharacter';
 
 
 class GameContainer extends Component{
@@ -36,6 +34,7 @@ class GameContainer extends Component{
         this.accumulateScore = this.accumulateScore.bind(this)
         this.handleCurrentCharacterChange = this.handleCurrentCharacterChange.bind(this)
         this.setCurrentHPCharacter = this.setCurrentHPCharacter.bind(this)
+        this.saveCharacter = this.saveCharacter.bind(this);
     }
 
     handleCharacterSubmit(event) {
@@ -205,6 +204,17 @@ class GameContainer extends Component{
         }
     }
 
+    saveCharacter() {
+		const url = `http://localhost:8080/avatars`;
+		const newCharacter = this.state.currentCharacter;
+		const headers = { "Content-Type": "application/json" };
+		fetch(url, {
+			method: "POST",
+			body: JSON.stringify(newCharacter),
+			headers: headers,
+		});
+	}
+
     render(){
 
         return(
@@ -248,16 +258,11 @@ class GameContainer extends Component{
                     currentCharacter={this.state.currentCharacter}
                     currentPlayer={this.state.currentPlayer}
                     />} 
-                    />
-                    <CurrentPlayerCharacter 
-                    currentPlayer={this.state.currentPlayer}
-                    currentCharacter={this.state.currentCharacter}
-                    />
-                    <Route path="/"component={HomeScreenButton} />   
+                    /> 
                 </Fragment>
             </Router>
         )
     }
 }
 
-export default GameContainer
+export default GameContainer;
