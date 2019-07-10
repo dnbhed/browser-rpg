@@ -11,10 +11,6 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit}) => {
 
       return (
         <Fragment>
-            <PlayerSelector
-              players={players} 
-              changePlayer={changePlayer}
-            />
           <div className="player-greeting">
             <h2 className="greeting-alert">**Intruder ALERT!!**</h2>
             <h1>So you thought you could infiltrate my base without any repercussions. You will be dispatched of swiftly and painfully.</h1>
