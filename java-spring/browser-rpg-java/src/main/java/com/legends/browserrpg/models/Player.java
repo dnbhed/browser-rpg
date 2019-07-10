@@ -30,7 +30,7 @@ public class Player {
         this.name = name;
         this.topScore = 0;
         this.avatars = new ArrayList<>();
-//        this.id = id;
+        this.id = id;
 
     }
 

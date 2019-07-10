@@ -1,5 +1,6 @@
 package com.legends.browserrpg.repositories;
 
+import com.legends.browserrpg.models.Avatar;
 import com.legends.browserrpg.models.Player;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;

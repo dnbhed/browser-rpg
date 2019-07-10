@@ -2,7 +2,7 @@ import React from 'react'
 
 const CharacterSelector = ({characters, currentPlayer, changeCharacter}) => {
 
-    const playerCharacterList = characters.filter((character => currentPlayer.id === character.player_id));
+    const playerCharacterList = characters.filter((character => currentPlayer.id == character.player.id));
 
     const characterList = playerCharacterList.map((character, index) => {
         return <option key={index} value={character.id} >

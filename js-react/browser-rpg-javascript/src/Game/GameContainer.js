@@ -22,6 +22,7 @@ class GameContainer extends Component{
             currentEnemy: {alive: true},
             newCharacterSpriteID: 0,
             createdNewPlayer: false,
+            createdNewCharacter: false,
             playerIsDefending: false
         }
         this.handleCharacterSubmit = this.handleCharacterSubmit.bind(this)
@@ -75,7 +76,8 @@ class GameContainer extends Component{
     }
 
     handleCurrentCharacterChange(event){
-        console.log("hello");
+        const characterIndex = event.target.value -1;
+        this.setState({currentCharacter: this.state.characters[characterIndex]})
         
     }
 
@@ -83,9 +85,16 @@ class GameContainer extends Component{
         if(this.state.createdNewPlayer === true){
             fetch("http://localhost:8080/players")
                 .then(res => res.json())
-                .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
+                .then(newPlayers => this.setState({ players: newPlayers._embedded.players }))
                 .then(err => console.error)
                 this.setState({createdNewPlayer:false})
+        }
+        if(this.state.createdNewCharacter === true){
+            fetch("http://localhost:8080/avatars")
+                .then(res => res.json())
+                .then(newCharacters => this.setState({ characters: newCharacters._embedded.avatars }))
+                .then(err => console.error)
+                this.setState({createdNewCharacter:false})
         }
     }
 
