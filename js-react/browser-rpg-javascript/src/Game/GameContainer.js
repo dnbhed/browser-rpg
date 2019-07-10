@@ -30,6 +30,7 @@ class GameContainer extends Component{
         this.enemyAttacksPlayer = this.enemyAttacksPlayer.bind(this)
         this.playerDefends = this.playerDefends.bind(this)
         this.resetEnemy = this.resetEnemy.bind(this)
+        this.accumulateScore = this.accumulateScore.bind(this)
     }
 
     handleSubmit(event) {
@@ -217,7 +218,12 @@ class GameContainer extends Component{
                         />}
                         />
                     <Route path="/"component={HomeScreenButton} />   
-                    <Route exact path="/endgame"component={EndGameContainer} />
+                    <Route exact path="/endgame"render={(props) => <EndGameContainer {...props}
+                    currentCharacterScore={this.state.currentCharacter.score}
+                    currentCharacterPlayer={this.state.currentCharacter}
+                    currentPlayer={this.state.currentPlayer}
+                    />} 
+                    />
                 </Fragment>
             </Router>
         )
