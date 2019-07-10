@@ -244,4 +244,4 @@ class GameContainer extends Component{
     }
 }
 
-export default GameContainer
+export default GameContainer;
