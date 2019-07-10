@@ -1,6 +1,7 @@
 import React, {Fragment, useState} from 'react'
 import PlayerBattleSprite from '../Components/BattleComponents/PlayerBattleSprite'
 import EnemyBattleSprite from '../Components/BattleComponents/EnemyBattleSprite'
+import battle from '../sounds/battle.mp3'
 
 import {Redirect} from 'react-router-dom'
 
@@ -59,6 +60,7 @@ const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerA
         return(
             <Fragment>
                 <div id="battle-container">
+                    <audio src={battle} autoPlay loop={true}/>
                     <h1>FIGHT!</h1>
                     <PlayerBattleSprite currentCharacter={currentCharacter}/>
                     <EnemyBattleSprite hp={currentEnemy}/>
