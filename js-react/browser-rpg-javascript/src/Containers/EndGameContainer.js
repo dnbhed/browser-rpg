@@ -24,6 +24,9 @@ const EndGameContainer = ({ currentCharacter, currentPlayer }) => {
                     <Fragment>
                       <h1>You Win. Epic Time!</h1>
                       <audio src={victory} autoPlay loop={true}/>
+                      <Link to="/battle">
+                        <h1>Continue?</h1>
+                      </Link>
                     </Fragment>
                     )
                 }
@@ -35,9 +38,7 @@ const EndGameContainer = ({ currentCharacter, currentPlayer }) => {
             {printStatus()}
             <h1>Your new score is {currentCharacter.score}</h1>
             <img src={trophy} width="480px" height="480px" className="trophy" />
-            <Link to="/battle">
-                <h1>Continue?</h1>
-            </Link>
+            <button>SAVE CHARACTER</button>
         </div>
     );
 };

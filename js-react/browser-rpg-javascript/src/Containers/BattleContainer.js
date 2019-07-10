@@ -5,6 +5,7 @@ import EnemyBattleSprite from "../Components/BattleComponents/EnemyBattleSprite"
 import { Redirect } from "react-router-dom";
 
 import "./BattleContainer.css";
+import battle from '../sounds/battle.mp3'
 
 const BattleContainer = ({
 	currentPlayer,
@@ -14,7 +15,8 @@ const BattleContainer = ({
 	enemyAttacksPlayer,
 	playerDefends,
 	resetEnemy,
-	accumulateScore,
+    accumulateScore,
+    setCurrentHPCharacter
 }) => {
 	const [playerTurn, setPlayerTurn] = useState(true);
 	const [enemyDamaged, setEnemyDamaged] = useState(false);
@@ -32,7 +34,8 @@ const BattleContainer = ({
 	}
 
 	if (currentCharacter.alive === false) {
-		console.log(currentCharacter.currentHP);
+        console.log(currentCharacter.currentHP);
+        setCurrentHPCharacter();
 		resetEnemy();
 		return <Redirect to="/endgame" />;
 	}
@@ -66,6 +69,7 @@ const BattleContainer = ({
 	return (
 		<Fragment>
 			<div id="battle-container">
+                <audio src={battle} autoPlay loop={true}/>
 				<h1>FIGHT!</h1>
 				<PlayerBattleSprite
 					currentCharacter={currentCharacter}

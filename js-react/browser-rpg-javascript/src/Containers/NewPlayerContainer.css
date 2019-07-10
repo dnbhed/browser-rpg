@@ -1,6 +1,6 @@
 .create-new-player {
     padding: 20px;
-    margin-top: 100px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -97,4 +97,23 @@ input[type=submit]:hover {
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-7px);
+  }
+
+  .player-greeting {
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    background-color:black;
+    width: 700px;
+    height: 200px;
+    box-sizing: border-box;
+    border: 2px solid;
+  }
+
+  .greeting-alert {
+    color: red;
   }
