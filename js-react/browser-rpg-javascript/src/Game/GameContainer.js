@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import EndGameContainer from '../Containers/EndGameContainer';
 import NewPlayerContainer from '../Containers/NewPlayerContainer';
 import HomeScreenButton from '../Components/HomeScreenButton';
+import CurrentPlayerCharacter from '../Components/CurrentPlayerCharacter';
 
 
 class GameContainer extends Component{
@@ -31,6 +32,7 @@ class GameContainer extends Component{
         this.playerDefends = this.playerDefends.bind(this)
         this.resetEnemy = this.resetEnemy.bind(this)
         this.accumulateScore = this.accumulateScore.bind(this)
+        this.setCurrentHPCharacter = this.setCurrentHPCharacter.bind(this)
     }
 
     handleSubmit(event) {
@@ -125,6 +127,14 @@ class GameContainer extends Component{
         })
     }
 
+    setCurrentHPCharacter(){
+        this.setState(prevState => {
+            const currentCharacter= {...prevState.currentCharacter}
+            currentCharacter.currentHP = 0
+            return {currentCharacter}
+        })
+    }
+
     accumulateScore(){
         this.setState(prevState => {
             const currentCharacter = {...prevState.currentCharacter}
@@ -212,6 +222,7 @@ class GameContainer extends Component{
                         currentEnemy={this.state.currentEnemy}
                         resetEnemy={this.resetEnemy}
                         accumulateScore={this.accumulateScore}
+                        setCurrentHPCharacter={this.setCurrentHPCharacter}
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         enemyAttacksPlayer={this.enemyAttacksPlayer}
                         playerDefends={this.playerDefends}
@@ -222,6 +233,10 @@ class GameContainer extends Component{
                     currentCharacter={this.state.currentCharacter}
                     currentPlayer={this.state.currentPlayer}
                     />} 
+                    />
+                    <CurrentPlayerCharacter 
+                    currentPlayer={this.state.currentPlayer}
+                    currentCharacter={this.state.currentCharacter}
                     />
                 </Fragment>
             </Router>

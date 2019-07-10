@@ -9,7 +9,7 @@ const StartScreenContainer = () => {
             <h1>The game</h1>
             <SelectPlayerButton/>
         </div>
-    )
+    ) 
 }
 
 export default StartScreenContainer
