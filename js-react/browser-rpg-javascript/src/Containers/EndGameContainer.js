@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
 import trophy from "../sprites/trophy.gif";
+import victory from "../sounds/Victory.mp3";
+import lose from "../sounds/Lose.mp3";
 
 const EndGameContainer = ({ currentCharacter, currentPlayer }) => {
 	if (!currentPlayer.id || !currentCharacter.maxHP) {
@@ -9,9 +11,20 @@ const EndGameContainer = ({ currentCharacter, currentPlayer }) => {
 
 	function printStatus() {
 		if (currentCharacter.currentHP === 0) {
-			return <h1>You Lose. Try Again!!</h1>;
+			console.log(currentCharacter.currentHP);
+			return (
+				<Fragment>
+					<h1>You Lose. Try Again!!</h1>
+					<audio src={lose} autoPlay loop={true} />
+				</Fragment>
+			);
 		} else {
-			return <h1>You Win. Epic Time!</h1>;
+			return (
+				<Fragment>
+					<h1>You Win. Epic Time!</h1>
+					<audio src={victory} autoPlay loop={true} />
+				</Fragment>
+			);
 		}
 	}
 
