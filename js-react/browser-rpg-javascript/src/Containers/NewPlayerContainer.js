@@ -11,12 +11,10 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit}) => {
 
       return (
         <Fragment>
-<<<<<<< HEAD
           <PlayerSelector
             players={players} 
             changePlayer={changePlayer}
           />
-=======
           <div className="player-greeting">
             <h2>**Intruder ALERT!!**</h2>
             <br/>
@@ -33,7 +31,6 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit}) => {
             Create New Player
           </button>
           <h1 className="create-new-player-head">Create a new Player</h1>
->>>>>>> develop
           <NewPlayerForm handleSubmit={handleSubmit} />
 
             <ConfirmSelectedPlayerButton />
