@@ -1,5 +1,5 @@
 
-import React, {Fragment, useState} from 'react'
+import React, {useState} from 'react'
 
 
 
@@ -12,14 +12,12 @@ const NewPlayerForm = ({handleSubmit}) => {
   }
   
     return (
-       <Fragment>
-         <div id="new-player-form">
+         <div className="new-player-form">
           <form className="player-form" onSubmit={handleSubmit} >
             <input id="name" type="text" placeholder="Player name" value={newName} onChange={handleNameChange} />
             <input type="submit" value="Create Player" />
           </form>
          </div>
-       </Fragment>
     )
 }
 

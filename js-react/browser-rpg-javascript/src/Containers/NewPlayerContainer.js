@@ -1,4 +1,4 @@
-import React ,{Fragment} from 'react'
+import React, {Fragment} from 'react'
 import NewPlayerForm from '../Components/NewPlayerComponents/NewPlayerForm'
 import PlayerSelector from '../Components/NewPlayerComponents/PlayerSelector'
 import ConfirmSelectedPlayerButton from '../Components/NewPlayerComponents/ConfirmSelectedPlayer'
@@ -21,15 +21,19 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit}) => {
             <h2>**Protocol initiated. Dispatching DESTROYER Unit!!**</h2><br/>
           </div>
           <audio src={playerCreation} autoPlay loop={true}/>
-          <button id="player-creation-button" className="new-player-form">
+        <div className="create-new-player">
+
+          <button className="new-player-form">
             Create New Player
           </button>
+          <h1 className="create-new-player-head">Create a new Player</h1>
           <NewPlayerForm handleSubmit={handleSubmit} />
 
             <PlayerSelector
               players={players} changePlayer={changePlayer}/>
             <ConfirmSelectedPlayerButton />
 
+        </div>
         </Fragment>
       )
   
