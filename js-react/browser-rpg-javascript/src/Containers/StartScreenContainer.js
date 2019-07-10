@@ -5,7 +5,7 @@ import './StartScreenContainer.css'
 const StartScreenContainer = () => {
 
     return (
-        <div className="start-screen">
+        <div className="game-head">
             <h1>The game</h1>
             <SelectPlayerButton/>
         </div>
