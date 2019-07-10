@@ -53,9 +53,9 @@ button:active {
 #end-game-container {
 font-family: 'Press Start 2P', cursive;
 text-align: center;
-color: rgb(77, 36, 134);
+color: gold;
 font-size: 20px;
-text-shadow: 2px 2px 0px #BA2FB5;
+text-shadow: 2px 2px 0px darkgoldenrod;
 padding: 20px;
 margin-top: 100px;
 }
