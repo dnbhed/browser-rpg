@@ -31,6 +31,7 @@ class GameContainer extends Component{
         this.playerDefends = this.playerDefends.bind(this)
         this.resetEnemy = this.resetEnemy.bind(this)
         this.accumulateScore = this.accumulateScore.bind(this)
+        this.setCurrentHPCharacter = this.setCurrentHPCharacter.bind(this)
     }
 
     handleSubmit(event) {
@@ -125,6 +126,14 @@ class GameContainer extends Component{
         })
     }
 
+    setCurrentHPCharacter(){
+        this.setState(prevState => {
+            const currentCharacter= {...prevState.currentCharacter}
+            currentCharacter.currentHP = 0
+            return {currentCharacter}
+        })
+    }
+
     accumulateScore(){
         this.setState(prevState => {
             const currentCharacter = {...prevState.currentCharacter}
@@ -212,6 +221,7 @@ class GameContainer extends Component{
                         currentEnemy={this.state.currentEnemy}
                         resetEnemy={this.resetEnemy}
                         accumulateScore={this.accumulateScore}
+                        setCurrentHPCharacter={this.setCurrentHPCharacter}
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         enemyAttacksPlayer={this.enemyAttacksPlayer}
                         playerDefends={this.playerDefends}

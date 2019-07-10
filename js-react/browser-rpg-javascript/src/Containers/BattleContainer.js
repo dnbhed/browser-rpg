@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom'
 
 import './BattleContainer.css'
 
-const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerAttacksEnemy, enemyAttacksPlayer, playerDefends, resetEnemy, accumulateScore}) => {
+const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerAttacksEnemy, enemyAttacksPlayer, playerDefends, resetEnemy, accumulateScore, setCurrentHPCharacter}) => {
 
     const [playerTurn, setPlayerTurn] = useState(true);
     
@@ -20,6 +20,8 @@ const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerA
     }
 
     if (currentCharacter.alive === false) {
+        console.log(currentCharacter.currentHP)
+        setCurrentHPCharacter()
         console.log(currentCharacter.currentHP)
         resetEnemy();
         return (

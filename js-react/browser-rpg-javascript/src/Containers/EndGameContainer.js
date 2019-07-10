@@ -10,13 +10,25 @@ const EndGameContainer = ({currentCharacter, currentPlayer}) => {
             <Redirect to="/" />
         )
     }
+    
+    function printStatus(){
+        if (currentCharacter.currentHP === 0 ){
+            console.log(currentCharacter.currentHP)
+          return (
+            <h1>You Lose. Try Again!!</h1>
+          )
+        } else {
+          return (
+            <h1>You Win. Epic Time!</h1>
+          )
+        }
 
-    // if (currentPlayer.currentHP )
+    }
 
     return (
         <div id="end-game-container">
         
-            <h1>You Win. Epic Time!</h1>
+            {printStatus()}
             <h1>Your new score is {currentCharacter.score}</h1>
             <img src={trophy} width="480px" height="480px" className="trophy"/>
            <Link to='/'>
