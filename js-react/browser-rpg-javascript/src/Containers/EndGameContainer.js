@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import {Link, Redirect} from 'react-router-dom'
+import trophy from '../sprites/trophy.gif'
 
 
 const EndGameContainer = ({currentCharacter, currentPlayer}) => {
@@ -17,7 +18,7 @@ const EndGameContainer = ({currentCharacter, currentPlayer}) => {
         
             <h1>You Win. Epic Time!</h1>
             <h1>Your new score is {currentCharacter.score}</h1>
-            <iframe src="https://giphy.com/embed/SHzl9RryJ4klFthKzD" width="480" height="480" frameBorder="0" class="trophy"></iframe>
+            <img src={trophy} width="480px" height="480px" className="trophy"/>
            <Link to='/'>
               <h2>Continue?</h2>
             </Link>
