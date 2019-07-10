@@ -7,9 +7,11 @@ const SelectPlayerButton = () => {
 
     return (
       <div className="start-game-button">
-      <button id="select-player-button" ><Link className="button-link" to="/select-player">Start Game</Link></button>
+      <Link className="button-link" to="/select-player"><button id="select-player-button" >Start Game</button></Link>
       </div>
     )
 }
 
 export default SelectPlayerButton;
+
+

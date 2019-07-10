@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import EndGameContainer from '../Containers/EndGameContainer';
 import NewPlayerContainer from '../Containers/NewPlayerContainer';
 import HomeScreenButton from '../Components/HomeScreenButton';
+import CurrentPlayerCharacter from '../Components/CurrentPlayerCharacter';
 
 
 class GameContainer extends Component{
@@ -232,6 +233,10 @@ class GameContainer extends Component{
                     currentCharacter={this.state.currentCharacter}
                     currentPlayer={this.state.currentPlayer}
                     />} 
+                    />
+                    <CurrentPlayerCharacter 
+                    currentPlayer={this.state.currentPlayer}
+                    currentCharacter={this.state.currentCharacter}
                     />
                 </Fragment>
             </Router>
