@@ -29,6 +29,7 @@ class GameContainer extends Component{
         this.playerAttacksEnemy = this.playerAttacksEnemy.bind(this)
         this.enemyAttacksPlayer = this.enemyAttacksPlayer.bind(this)
         this.playerDefends = this.playerDefends.bind(this)
+        this.resetEnemy = this.resetEnemy.bind(this)
     }
 
     handleSubmit(event) {
@@ -114,13 +115,35 @@ class GameContainer extends Component{
         }
     }
 
+    resetEnemy(){
+        this.setState(prevState => {
+            const currentEnemy = {...prevState.currentEnemy}
+            currentEnemy.currentHP = currentEnemy.maxHP
+            currentEnemy.alive = true
+            return {currentEnemy}
+        })
+    }
+
+    accumulateScore(){
+        this.setState(prevState => {
+            const currentCharacter = {...prevState.currentCharacter}
+            currentCharacter.score += 500
+            return {currentCharacter}
+        })
+    }
+
     enemyAttacksPlayer(){
         let power= 0;
+        if(this.state.currentEnemy.currentHP <= 70){
+            power = this.state.currentEnemy.power + 30;
+        }
+
         if(!this.state.playerIsDefending){
             power = this.state.currentEnemy.power;
         } else{
             power = this.state.currentEnemy.power - 20;
         }
+
         if (!(this.state.currentCharacter.currentHP - power <= 0)) {
             this.setState(prevState => {
                 const currentCharacter = { ...prevState.currentCharacter }
@@ -186,6 +209,8 @@ class GameContainer extends Component{
                         currentPlayer={this.state.currentPlayer}
                         currentCharacter={this.state.currentCharacter} 
                         currentEnemy={this.state.currentEnemy}
+                        resetEnemy={this.resetEnemy}
+                        accumulateScore={this.accumulateScore}
                         playerAttacksEnemy={this.playerAttacksEnemy}
                         enemyAttacksPlayer={this.enemyAttacksPlayer}
                         playerDefends={this.playerDefends}
