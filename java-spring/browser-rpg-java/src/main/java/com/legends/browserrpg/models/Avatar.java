@@ -32,14 +32,14 @@ public class Avatar {
     private Boolean alive;
 
     @Column(name = "sprite_id")
-    private String spriteID;
+    private int spriteID;
 
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = true)
     private Player player;
 
 
-    public Avatar(String name, Player player) {
+    public Avatar(String name, Player player, int spriteID) {
         this.name = name;
         this.maxHP = 100;
         this.currentHP = 100;
@@ -47,7 +47,7 @@ public class Avatar {
         this.score = 0;
         this.alive = true;
         this.player = player;
-        this.spriteID = "joe";
+        this.spriteID = spriteID;
     }
 
     public Avatar() {
@@ -119,11 +119,11 @@ public class Avatar {
         this.player = player;
     }
 
-    public String getSpriteID() {
+    public int getSpriteID() {
         return spriteID;
     }
 
-    public void setSpriteID(String spriteID) {
+    public void setSpriteID(int spriteID) {
         this.spriteID = spriteID;
     }
 }

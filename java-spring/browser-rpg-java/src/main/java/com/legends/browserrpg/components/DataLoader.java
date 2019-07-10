@@ -31,7 +31,7 @@ public class DataLoader implements ApplicationRunner {
         Player player = new Player("Greg");
         playerRepository.save(player);
 
-        Avatar character = new Avatar("Steve", player);
+        Avatar character = new Avatar("Steve", player, 1);
         avatarRepository.save(character);
 
         Enemy enemy = new Enemy("Michael 'the Job' Forbes");

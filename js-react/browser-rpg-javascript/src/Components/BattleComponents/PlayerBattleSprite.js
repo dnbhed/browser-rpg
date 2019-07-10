@@ -18,8 +18,6 @@ const PlayerBattleSprite = props => {
 	let sprite = joe;
 
 	function chosenSprite() {
-		console.log(props.damage);
-
 		if (spriteId == 1 && props.damage) {
 			sprite = joedamage;
 		} else if (spriteId == 1) {

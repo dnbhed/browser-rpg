@@ -1,4 +1,5 @@
 .create-new-player {
+<<<<<<< HEAD
     padding: 20px;
     margin-top: 10px;
     margin-left: auto;
@@ -10,88 +11,121 @@
     box-sizing: border-box;
     border: 2px solid;
     box-shadow: 5px 10px rebeccapurple;
+=======
+	padding: 20px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background-color: darkslateblue;
+	width: 700px;
+	height: 500px;
+	box-sizing: border-box;
+	border: 2px solid;
+	box-shadow: 5px 10px rebeccapurple;
+>>>>>>> develop
 }
 
 .create-new-player-head {
-    padding: 20px;
-    text-align: center;
-    font-family: 'Press Start 2P', cursive;
-    color: lightseagreen;
-    font-size: 30px;
-    text-shadow: 2px 2px 0px darkviolet;
+	padding: 20px;
+	text-align: center;
+	font-family: "Press Start 2P", cursive;
+	color: lightseagreen;
+	font-size: 30px;
+	text-shadow: 2px 2px 0px darkviolet;
 }
 
 .player-form {
-    box-sizing: border-box;
-    padding: 20px;
-    margin: 10px;
+	box-sizing: border-box;
+	padding: 20px;
+	margin: 10px;
 }
 
-input[type=text] {
-    padding: 10px;
-    border-radius: 5px;
-    margin: 30px;
-    font-size: 19px;
+.increment-button {
+	width: 160px;
+	height: 40px;
+	font-family: "Press Start 2P", cursive;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	font-weight: 500;
+	color: darkcyan;
+	background-color: rgb(77, 36, 134);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	text-align: center;
 }
 
-input[type=submit] {
-  width: 160px;
-  height: 40px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  font-weight: 500;
-  color: darkcyan;
-  background-color: rgb(77, 36, 134);
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
+input[type="text"] {
+	padding: 10px;
+	border-radius: 5px;
+	margin: 30px;
+	font-size: 19px;
 }
 
-input[type=submit]:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
-  }
+input[type="submit"] {
+	width: 160px;
+	height: 40px;
+	font-family: "Press Start 2P", cursive;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	font-weight: 500;
+	color: darkcyan;
+	background-color: rgb(77, 36, 134);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
+
+input[type="submit"]:hover {
+	background-color: #2ee59d;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
 
 .select-container {
-    padding: 20px;
-    margin: 10px;
+	padding: 20px;
+	margin: 10px;
 }
 
-  select {
-    width: 168px;
-    padding: 5px;
-    font-size: 15px;
-    line-height: 1px;
-    border: 0;
-    border-radius: 5px;
-    height: 30px;
-  }
+select {
+	width: 168px;
+	padding: 5px;
+	font-size: 15px;
+	line-height: 1px;
+	border: 0;
+	border-radius: 5px;
+	height: 30px;
+}
 
 .confirm-player {
-    width: 160px;
-    height: 40px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0px;
-    font-weight: 500;
-    color: darkcyan;
-    background-color: rgb(77, 36, 134);
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-  }
+	width: 160px;
+	height: 40px;
+	font-family: "Press Start 2P", cursive;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	font-weight: 500;
+	color: darkcyan;
+	background-color: rgb(77, 36, 134);
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+}
 
+<<<<<<< HEAD
   .confirm-player:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -117,3 +151,11 @@ input[type=submit]:hover {
   .greeting-alert {
     color: red;
   }
+=======
+.confirm-player:hover {
+	background-color: #2ee59d;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
+}
+>>>>>>> develop
