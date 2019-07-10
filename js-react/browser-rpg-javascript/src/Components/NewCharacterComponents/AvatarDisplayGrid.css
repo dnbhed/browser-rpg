@@ -1,29 +1,28 @@
-.grid-container {
-    display: flex;
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-template-columns: auto auto auto;
-    margin-top: 100px;
+#grid-container {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 150px;
     padding: 20px;
     justify-items: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
+    width: 100%;
   }
 
-.grid-container img{
+#grid-container img{
   height: 150px;
   width: 150px;
+}
+
+.grid-item {
+  padding: 20px;
 }
 
 .select-sprite {
   padding: 20px;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  color: black;
+  color: magenta;
   font-size: 30px;
   text-shadow: 2px 2px 0px darkviolet;
-  padding: 20px;
+  margin-top: 10px;
 }
