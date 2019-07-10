@@ -67,6 +67,8 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
             <CharacterSelector characters={characters}  currentPlayer={currentPlayer} changeCharacter={changeCharacter}/>
 			<AvatarDisplay handleClick={handleSpriteChange} />
 			<audio src={characterCreation} autoPlay loop={true} />
+            <h1>Selected Sprite</h1>
+            <img src={sprites[sprite - 1]} />
 			<form className="character-form" onSubmit={handleSubmit}>
 				<label>Sprite ID</label>
 				<input
@@ -74,7 +76,8 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 					type="number"
 					value={sprite}
 					readOnly={true}
-					onChange={handleSpriteChange}
+                    onChange={handleSpriteChange}
+                    hidden={true}
 				/>
 
 				<input
@@ -107,8 +110,6 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 
 				<input type="submit" value="Create Character" />
 			</form>
-			<h1>Selected Sprite</h1>
-			<img src={sprites[sprite - 1]} />
 			<button id="start-game-button">
 				<Link to="/battle">FIGHT</Link>
 			</button>

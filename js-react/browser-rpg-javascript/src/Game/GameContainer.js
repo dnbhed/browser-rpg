@@ -41,8 +41,9 @@ class GameContainer extends Component{
         event.preventDefault();
         console.log("posting")
         const url = 'http://localhost:8080/avatars'
-        const newCharacter = { name: event.target.name.value, maxHP: event.target.hp.value, currentHP: event.target.hp.value, power: event.target.power.value, spriteID: event.target.spriteID.value, alive: true, score: 0, player: this.state.currentPlayer._links.player.href }
+        const newCharacter = { name: event.target.name.value, maxHP: event.target.hp.value, currentHP: event.target.hp.value, power: event.target.power.value, spriteID: event.target.spriteID.value, score: 0, player: this.state.currentPlayer._links.player.href }
         this.setState({currentCharacter: newCharacter})
+        this.setState({createdNewCharacter: true})
         const headers = { 'Content-Type': 'application/json' }
         fetch(url, {
             method: 'POST',
@@ -234,6 +235,7 @@ class GameContainer extends Component{
                         render={(props) => 
                         <NewCharacterContainer {...props} 
                             currentPlayer={this.state.currentPlayer} 
+                            currentCharacter={this.state.currentCharacter}
                             handleClick={this.handleClick} 
                             handleSubmit={this.handleCharacterSubmit}
                             characters={this.state.characters}
