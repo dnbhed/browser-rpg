@@ -1,4 +1,4 @@
-#content{
+/* #content{
     display: grid;
     grid-template-columns: repeat(5, 1fr)
 }
@@ -24,4 +24,4 @@
 #high-score{
     grid-row: 2 / span 1;
     grid-column: 3 / span 1;
-}
+} */

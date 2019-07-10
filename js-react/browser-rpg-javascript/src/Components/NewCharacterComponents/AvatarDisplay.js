@@ -24,8 +24,6 @@ const AvatarDisplay = ({handleClick}) => {
             <div className="grid-item" >
                 < img id="4" src={alex}/>
             </div>
-            {/* <div className="grid-item" id="5">5</div>
-            <div className="grid-item" id="6">6</div> */}
             </div>
             </Fragment>
     )

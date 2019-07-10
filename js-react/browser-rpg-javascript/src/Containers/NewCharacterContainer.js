@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import AvatarDisplay from "../Components/NewCharacterComponents/AvatarDisplay";
 import CharacterSelector from '../Components/NewCharacterComponents/CharacterSelector'
 import { Link, Redirect } from "react-router-dom";
@@ -63,12 +63,12 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 	}
 
 	return (
-		<Fragment>
+		<div className="new-character-container">
             <CharacterSelector characters={characters}  currentPlayer={currentPlayer} changeCharacter={changeCharacter}/>
 			<AvatarDisplay handleClick={handleSpriteChange} />
 			<audio src={characterCreation} autoPlay loop={true} />
-            <h1>Selected Sprite</h1>
-            <img src={sprites[sprite - 1]} />
+            <h2 className="sprite-selected">Sprite Selected</h2>
+            <img className="sprite-img" src={sprites[sprite - 1]} />
 			<form className="character-form" onSubmit={handleSubmit}>
 				{/* <label>Sprite ID</label> */}
 				<input
@@ -88,25 +88,29 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 					onChange={handleNameChange}
 				/>
 
+				
+
+				<div id="spending-container">
 				<h3 id="points-to-spend">Points to spend: {points}</h3>
 
-				<label>HP: </label>
+				<label>HP:</label>
 				<input id="hp" type="number" value={hp} readOnly={true} />
-				<h3 className="increment-button" onClick={spendPointsOnHP}>
-					Add 5 HP
-				</h3>
-				<h3 className="increment-button" onClick={removePointsFromHP}>
-					Remove 5 HP
-				</h3>
-
-				<label>Power: </label>
+				<button className="increment-button" onClick={spendPointsOnHP}>
+					add 5
+				</button>
+				<button className="decrease-button" onClick={removePointsFromHP}>
+					remove 5
+				</button>
+				<label>Power:</label>
 				<input id="power" type="number" value={power} readOnly={true} />
-				<h3 className="increment-button" onClick={spendPointsOnPower}>
-					Add 5 Power
-				</h3>
-				<h3 className="increment-button" onClick={removePointsFromPower}>
-					Remove 5 Power
-				</h3>
+				<button className="increment-button" onClick={spendPointsOnPower}>
+					add 5
+				</button>
+				<button className="decrease-button" onClick={removePointsFromPower}>
+					remove 5
+				</button>
+				</div>
+				
 
 				<input type="submit" value="Create Character" />
 			</form>
@@ -117,7 +121,7 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 				currentPlayer={currentPlayer}
 				currentCharacter={currentCharacter}
 			/>
-		</Fragment>
+		</div>
 	);
 };
 
