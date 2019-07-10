@@ -1,5 +1,4 @@
 .create-new-player {
-<<<<<<< HEAD
     padding: 20px;
     margin-top: 10px;
     margin-left: auto;
@@ -11,19 +10,6 @@
     box-sizing: border-box;
     border: 2px solid;
     box-shadow: 5px 10px rebeccapurple;
-=======
-	padding: 20px;
-	margin-top: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	background-color: darkslateblue;
-	width: 700px;
-	height: 500px;
-	box-sizing: border-box;
-	border: 2px solid;
-	box-shadow: 5px 10px rebeccapurple;
->>>>>>> develop
 }
 
 .create-new-player-head {
@@ -125,7 +111,6 @@ select {
 	outline: none;
 }
 
-<<<<<<< HEAD
   .confirm-player:hover {
     background-color: #2EE59D;
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
@@ -151,11 +136,3 @@ select {
   .greeting-alert {
     color: red;
   }
-=======
-.confirm-player:hover {
-	background-color: #2ee59d;
-	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-	color: #fff;
-	transform: translateY(-7px);
-}
->>>>>>> develop
