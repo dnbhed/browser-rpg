@@ -5,7 +5,7 @@ const ConfirmSelectedPlayer = () => {
     
 
     return (
-        <Link to="/new-character"><h2>Confirm Player</h2></Link>
+        <Link to="/new-character"><button className="confirm-player">Confirm Player</button></Link>
     )
 }
 
