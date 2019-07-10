@@ -12,7 +12,6 @@ import {
 import EndGameContainer from "../Containers/EndGameContainer";
 import NewPlayerContainer from "../Containers/NewPlayerContainer";
 import HomeScreenButton from "../Components/HomeScreenButton";
-import CurrentPlayerCharacter from "../Components/CurrentPlayerCharacter";
 
 class GameContainer extends Component {
 	constructor(props) {
@@ -251,6 +250,7 @@ class GameContainer extends Component {
 								spriteID={this.state.newCharacterSpriteID}
 								handleClick={this.handleClick}
 								handleSubmit={this.handleSubmit}
+								currentCharacter={this.state.currentCharacter}
 							/>
 						)}
 					/>
@@ -288,10 +288,6 @@ class GameContainer extends Component {
 								currentPlayer={this.state.currentPlayer}
 							/>
 						)}
-					/>
-					<CurrentPlayerCharacter
-						currentPlayer={this.state.currentPlayer}
-						currentCharacter={this.state.currentCharacter}
 					/>
 				</Fragment>
 			</Router>

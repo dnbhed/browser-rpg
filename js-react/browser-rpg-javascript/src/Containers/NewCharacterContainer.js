@@ -5,8 +5,14 @@ import joe from "../sprites/joe.gif";
 import alison from "../sprites/alison.gif";
 import kenny from "../sprites/kenny.gif";
 import alex from "../sprites/alex.gif";
+import CurrentPlayerCharacter from "../Components/CurrentPlayerCharacter";
 
-const NewCharacterContainer = ({ spriteID, handleSubmit, currentPlayer }) => {
+const NewCharacterContainer = ({
+	spriteID,
+	handleSubmit,
+	currentPlayer,
+	currentCharacter,
+}) => {
 	const sprites = [joe, alison, kenny, alex];
 	const [newName, setNewName] = useState("");
 	const [sprite, setSprite] = useState(1);
@@ -103,6 +109,10 @@ const NewCharacterContainer = ({ spriteID, handleSubmit, currentPlayer }) => {
 			<button id="start-game-button">
 				<Link to="/battle">FIGHT</Link>
 			</button>
+			<CurrentPlayerCharacter
+				currentPlayer={currentPlayer}
+				currentCharacter={currentCharacter}
+			/>
 		</Fragment>
 	);
 };
