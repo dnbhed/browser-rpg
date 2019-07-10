@@ -80,13 +80,21 @@ const NewCharacterContainer = ({ spriteID, handleSubmit, currentPlayer }) => {
 
 				<label>HP: </label>
 				<input id="hp" type="number" value={hp} readOnly={true} />
-				<button onClick={spendPointsOnHP}>Add 5 HP</button>
-				<button onClick={removePointsFromHP}>Remove 5 HP</button>
+				<h3 className="increment-button" onClick={spendPointsOnHP}>
+					Add 5 HP
+				</h3>
+				<h3 className="increment-button" onClick={removePointsFromHP}>
+					Remove 5 HP
+				</h3>
 
 				<label>Power: </label>
 				<input id="power" type="number" value={power} readOnly={true} />
-				<button onClick={spendPointsOnPower}>Add 5 Power</button>
-				<button onClick={removePointsFromPower}>Remove 5 Power</button>
+				<h3 className="increment-button" onClick={spendPointsOnPower}>
+					Add 5 Power
+				</h3>
+				<h3 className="increment-button" onClick={removePointsFromPower}>
+					Remove 5 Power
+				</h3>
 
 				<input type="submit" value="Create Character" />
 			</form>

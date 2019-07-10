@@ -40,6 +40,7 @@ class GameContainer extends Component {
 	}
 
 	handleSubmit(event) {
+		console.log("submitting");
 		event.preventDefault();
 		const url = "http://localhost:8080/avatars";
 		const newCharacter = {
