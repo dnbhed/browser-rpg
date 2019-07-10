@@ -76,7 +76,8 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 					type="number"
 					value={sprite}
 					readOnly={true}
-					onChange={handleSpriteChange}
+                    onChange={handleSpriteChange}
+                    hidden={true}
 				/>
 
 				<input
