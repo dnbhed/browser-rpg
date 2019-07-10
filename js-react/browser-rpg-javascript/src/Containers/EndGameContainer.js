@@ -38,7 +38,6 @@ const EndGameContainer = ({ currentCharacter, currentPlayer }) => {
             {printStatus()}
             <h1>Your new score is {currentCharacter.score}</h1>
             <img src={trophy} width="480px" height="480px" className="trophy" />
-            <button>SAVE CHARACTER</button>
         </div>
     );
 };
