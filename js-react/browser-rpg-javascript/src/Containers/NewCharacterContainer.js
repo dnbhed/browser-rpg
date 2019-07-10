@@ -1,12 +1,13 @@
 import React ,{Fragment, useState} from 'react'
 import AvatarDisplay from '../Components/NewCharacterComponents/AvatarDisplay'
+import CharacterSelector from '../Components/NewCharacterComponents/CharacterSelector'
 import {Link, Redirect} from 'react-router-dom'
 import joe from '../sprites/joe.gif'
 import alison from '../sprites/alison.gif'
 import kenny from '../sprites/kenny.gif'
 import alex from '../sprites/alex.gif'
 
-const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
+const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, changeCharacter}) => {
 
     const sprites = [joe, alison, kenny, alex]
     const [newName, setNewName] = useState("")
@@ -20,6 +21,8 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
         
         setNewName(event.target.value)
     }
+
+    
 
     function handleSpriteChange(event){
         setSprite(event.target.id)
@@ -60,6 +63,11 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
     }
         return(
           <Fragment>
+            <CharacterSelector
+                characters={characters}
+                currentPlayer={currentPlayer} 
+                changeCharacter={changeCharacter}
+            />
             <AvatarDisplay handleClick={handleSpriteChange} />
             <form className="character-form" onSubmit={handleSubmit} >
                 <label>Sprite ID</label>
@@ -86,7 +94,7 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
                 <h1>Selected Sprite</h1>
                 <img src={sprites[sprite - 1]} />
             <button id="start-game-button" ><Link to="/battle">FIGHT</Link></button>
-          </Fragment>
+          </Fragment>    
         )
 }
 

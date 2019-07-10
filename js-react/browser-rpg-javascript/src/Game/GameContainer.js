@@ -16,6 +16,7 @@ class GameContainer extends Component{
         super(props)
         this.state = {
             players: [],
+            characters: [],
             currentPlayer: {name:''},
             currentCharacter: null,
             currentEnemy: {alive: true},
@@ -23,7 +24,7 @@ class GameContainer extends Component{
             createdNewPlayer: false,
             playerIsDefending: false
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleCharacterSubmit = this.handleCharacterSubmit.bind(this)
         this.handleCurrentPlayerChange = this.handleCurrentPlayerChange.bind(this)
         this.handleNewPlayerForm = this.handleNewPlayerForm.bind(this)
         this.setCurrentPlayer = this.setCurrentPlayer.bind(this)
@@ -32,9 +33,10 @@ class GameContainer extends Component{
         this.playerDefends = this.playerDefends.bind(this)
         this.resetEnemy = this.resetEnemy.bind(this)
         this.accumulateScore = this.accumulateScore.bind(this)
+        this.handleCurrentCharacterChange = this.handleCurrentCharacterChange.bind(this)
     }
 
-    handleSubmit(event) {
+    handleCharacterSubmit(event) {
         event.preventDefault();
         console.log("posting")
         const url = 'http://localhost:8080/avatars'
@@ -71,6 +73,11 @@ class GameContainer extends Component{
         this.setState({currentPlayer: this.state.players[playerIndex]})
     }
 
+    handleCurrentCharacterChange(event){
+        console.log("hello");
+        
+    }
+
     componentDidUpdate(prevProps, prevState){
         if(this.state.createdNewPlayer === true){
             fetch("http://localhost:8080/players")
@@ -87,9 +94,9 @@ class GameContainer extends Component{
             .then(existingPlayers => this.setState({ players: existingPlayers._embedded.players }))
             .then(err => console.error)
 
-        fetch("http://localhost:8080/avatars/1")
+        fetch("http://localhost:8080/avatars")
             .then(res => res.json())
-            .then(avatar => this.setState({ currentCharacter: avatar }))
+            .then(avatars => this.setState({ characters: avatars._embedded.avatars }))
             .then(err => console.error)
 
         fetch("http://localhost:8080/enemies/1")
@@ -198,11 +205,11 @@ class GameContainer extends Component{
                     <Route exact path="/new-character" 
                         render={(props) => 
                         <NewCharacterContainer {...props} 
-                            currentPlayer={this.state.currentPlayer}
-                            
-                            spriteID={this.state.newCharacterSpriteID} 
+                            currentPlayer={this.state.currentPlayer} 
                             handleClick={this.handleClick} 
-                            handleSubmit={this.handleSubmit}
+                            handleSubmit={this.handleCharacterSubmit}
+                            characters={this.state.characters}
+                            changeCharacter={this.handleCurrentCharacterChange}
                         />}
                         />
                     <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
@@ -218,7 +225,6 @@ class GameContainer extends Component{
                         playerDefends={this.playerDefends}
                         />}
                         />
-                    <Route path="/"component={HomeScreenButton} />   
                     <Route exact path="/endgame"render={(props) => <EndGameContainer {...props}
                     currentCharacter={this.state.currentCharacter}
                     currentPlayer={this.state.currentPlayer}
@@ -228,6 +234,7 @@ class GameContainer extends Component{
                     currentPlayer={this.state.currentPlayer}
                     currentCharacter={this.state.currentCharacter}
                     />
+                    <Route path="/"component={HomeScreenButton} />   
                 </Fragment>
             </Router>
         )

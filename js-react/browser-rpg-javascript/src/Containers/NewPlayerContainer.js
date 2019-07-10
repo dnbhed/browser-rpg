@@ -10,14 +10,12 @@ const NewPlayerContainer = ({players, changePlayer, handleSubmit}) => {
 
       return (
         <Fragment>
-
-          <button id="player-creation-button" className="new-player-form">
-            Create New Player
-          </button>
+          <PlayerSelector
+            players={players} 
+            changePlayer={changePlayer}
+          />
           <NewPlayerForm handleSubmit={handleSubmit} />
 
-            <PlayerSelector
-              players={players} changePlayer={changePlayer}/>
             <ConfirmSelectedPlayerButton />
 
         </Fragment>
