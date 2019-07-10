@@ -5,6 +5,7 @@ import joe from "../sprites/joe.gif";
 import alison from "../sprites/alison.gif";
 import kenny from "../sprites/kenny.gif";
 import alex from "../sprites/alex.gif";
+import characterCreation from '../sounds/CharacterCreation.mp3'
 
 const NewCharacterContainer = ({ spriteID, handleSubmit, currentPlayer }) => {
 	const sprites = [joe, alison, kenny, alex];
@@ -58,6 +59,7 @@ const NewCharacterContainer = ({ spriteID, handleSubmit, currentPlayer }) => {
 	return (
 		<Fragment>
 			<AvatarDisplay handleClick={handleSpriteChange} />
+            <audio src={characterCreation} autoPlay loop={true}/>
 			<form className="character-form" onSubmit={handleSubmit}>
 				<label>Sprite ID</label>
 				<input
