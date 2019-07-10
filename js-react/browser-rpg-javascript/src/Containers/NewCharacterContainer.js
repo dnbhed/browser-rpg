@@ -70,7 +70,7 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
             <h1>Selected Sprite</h1>
             <img src={sprites[sprite - 1]} />
 			<form className="character-form" onSubmit={handleSubmit}>
-				<label>Sprite ID</label>
+				{/* <label>Sprite ID</label> */}
 				<input
 					id="spriteID"
 					type="number"

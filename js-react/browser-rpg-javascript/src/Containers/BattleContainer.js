@@ -22,7 +22,7 @@ const BattleContainer = ({
 	const [enemyDamaged, setEnemyDamaged] = useState(false);
 	const [playerDamaged, setPlayerDamaged] = useState(false);
 
-	if (!currentPlayer.id || !currentCharacter.maxHP) {
+	if (!currentPlayer.id || !currentCharacter) {
 		return <Redirect to="/" />;
 	}
 
