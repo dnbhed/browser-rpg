@@ -6,11 +6,22 @@ import {Redirect} from 'react-router-dom'
 
 import './BattleContainer.css'
 
-const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerAttacksEnemy, enemyAttacksPlayer, playerDefends}) => {
+const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerAttacksEnemy, enemyAttacksPlayer, playerDefends, resetEnemy, accumulateScore}) => {
 
     const [playerTurn, setPlayerTurn] = useState(true);
     
     if (currentEnemy.alive === false) {
+        console.log(currentEnemy.currentHP)
+        resetEnemy();
+        accumulateScore();
+        return (
+            <Redirect to="/endgame" />
+        )
+    }
+
+    if (currentCharacter.alive === false) {
+        console.log(currentCharacter.currentHP)
+        resetEnemy();
         return (
             <Redirect to="/endgame" />
         )
@@ -23,8 +34,10 @@ const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerA
         )
     }
 
+    
+
     if(playerTurn === false){
-        enemyAttacksPlayer()
+        setInterval(enemyAttacksPlayer(), 4000)
         
         setPlayerTurn(true)
 
@@ -45,7 +58,7 @@ const BattleContainer = ({currentPlayer, currentCharacter, currentEnemy, playerA
             <Fragment>
                 <div id="battle-container">
                     <h1>FIGHT!</h1>
-                    <PlayerBattleSprite hp={currentCharacter}/>
+                    <PlayerBattleSprite currentCharacter={currentCharacter}/>
                     <EnemyBattleSprite hp={currentEnemy}/>
                     <button id="attack" onClick={attack}>Attack!</button>
                     <button id="defend" onClick={defend}>Defend!</button>

@@ -1,4 +1,4 @@
-import React ,{Fragment, useState, useEffect} from 'react'
+import React ,{Fragment, useState} from 'react'
 import AvatarDisplay from '../Components/NewCharacterComponents/AvatarDisplay'
 import {Link, Redirect} from 'react-router-dom'
 import joe from '../sprites/joe.gif'
@@ -11,6 +11,9 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
     const sprites = [joe, alison, kenny, alex]
     const [newName, setNewName] = useState("")
     const [sprite, setSprite] = useState(1)
+    const [points, setPoints] = useState(150);
+    const [hp, setHp] = useState(0);
+    const [power, setPower] = useState(0);
     
     function handleNameChange(event){
         console.log(event.target.value);
@@ -20,6 +23,34 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
 
     function handleSpriteChange(event){
         setSprite(event.target.id)
+    }
+
+    function spendPointsOnHP(){
+        if(points > 0){
+            setHp(hp + 5)
+            setPoints(points - 5)
+        }
+    }
+
+    function removePointsFromHP(){
+        if(points < 150){
+            setHp(hp - 5)
+            setPoints(points + 5)
+        }
+    }
+
+    function spendPointsOnPower(){
+        if(points > 0){
+            setPower(power + 5)
+            setPoints(points - 5)
+        }
+    }
+
+    function removePointsFromPower(){
+        if(points < 150){
+            setPower(power - 5)
+            setPoints(points + 5)
+        }
     }
     
     if (!currentPlayer.id) {
@@ -32,13 +63,29 @@ const NewCharacterContainer = ({spriteID, handleSubmit, currentPlayer}) => {
             <AvatarDisplay handleClick={handleSpriteChange} />
             <form className="character-form" onSubmit={handleSubmit} >
                 <label>Sprite ID</label>
-                <input id="SpriteID" type="number" value={sprite} readOnly={true} onChange={handleSpriteChange}/>
+                <input id="spriteID" type="number" value={sprite} readOnly={true} onChange={handleSpriteChange}/>
+
                 <input id= "name" type="text" placeholder="Character name" value={newName} onChange={handleNameChange}/>
+
+                <h3 id="points-to-spend">Points to spend: {points}</h3>
+
+                <label>HP: </label>
+                <input id="hp" type="number" value={hp} readOnly={true}></input>
+                <button onClick={spendPointsOnHP}>Add 5 HP</button>
+                <button onClick={removePointsFromHP}>Remove 5 HP</button>
+
+
+                <label>Power: </label>
+                <input id="power" type="number" value={power} readOnly={true}></input>
+                <button onClick={spendPointsOnPower}>Add 5 Power</button>
+                <button onClick={removePointsFromPower}>Remove 5 Power</button>
+
+
                 <input type="submit" value="Create Character"/>
             </form>
-            <h1 id="start-game-button" ><Link to="/battle">FIGHT</Link></h1>
-            <h1>Selected Sprite</h1>
-            <img src={sprites[sprite - 1]}/>
+                <h1>Selected Sprite</h1>
+                <img src={sprites[sprite - 1]} />
+            <button id="start-game-button" ><Link to="/battle">FIGHT</Link></button>
           </Fragment>
         )
 }
