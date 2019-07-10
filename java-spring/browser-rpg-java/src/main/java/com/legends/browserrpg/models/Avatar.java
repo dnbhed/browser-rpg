@@ -39,11 +39,11 @@ public class Avatar {
     private Player player;
 
 
-    public Avatar(String name, Player player, int spriteID) {
+    public Avatar(String name, Player player, int spriteID, int maxHP, int power) {
         this.name = name;
-        this.maxHP = 100;
-        this.currentHP = 100;
-        this.power = 50;
+        this.maxHP = maxHP;
+        this.currentHP = maxHP;
+        this.power = power;
         this.score = 0;
         this.alive = true;
         this.player = player;
