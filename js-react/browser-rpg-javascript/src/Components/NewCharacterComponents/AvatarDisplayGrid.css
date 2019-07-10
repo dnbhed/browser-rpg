@@ -7,6 +7,6 @@
     grid-template-columns: auto auto auto;
   }
 
-img{
+.grid-container img{
   height: 150px
 }
