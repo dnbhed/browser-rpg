@@ -18,7 +18,7 @@ const BattleContainer = ({
     accumulateScore,
     setCurrentHPCharacter
 }) => {
-	const [playerTurn, setPlayerTurn] = useState(true);
+	// const [playerTurn, setPlayerTurn] = useState(true);
 	const [enemyDamaged, setEnemyDamaged] = useState(false);
 	const [playerDamaged, setPlayerDamaged] = useState(false);
 
