@@ -68,14 +68,17 @@ const BattleContainer = ({
 
 	return (
 		<Fragment>
+			<div>
+			<h1 id="battle-title">Battle</h1>
+			</div>
 			<div id="battle-container">
                 <audio src={battle} autoPlay loop={true}/>
-				<h1>FIGHT!</h1>
 				<PlayerBattleSprite
 					currentCharacter={currentCharacter}
 					damage={playerDamaged}
 				/>
 				<EnemyBattleSprite hp={currentEnemy} damage={enemyDamaged} />
+				<h1 id="x">X</h1>
 				<button id="attack" onClick={attack}>
 					Attack!
 				</button>
