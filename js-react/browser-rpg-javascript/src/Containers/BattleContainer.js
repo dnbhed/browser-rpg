@@ -18,7 +18,7 @@ const BattleContainer = ({
     accumulateScore,
     setCurrentHPCharacter
 }) => {
-	const [playerTurn, setPlayerTurn] = useState(true);
+	// const [playerTurn, setPlayerTurn] = useState(true);
 	const [enemyDamaged, setEnemyDamaged] = useState(false);
 	const [playerDamaged, setPlayerDamaged] = useState(false);
 
@@ -45,6 +45,7 @@ const BattleContainer = ({
 		setTimeout(() => {
 			setEnemyDamaged(false);
 			playerAttacksEnemy();
+			if(currentEnemy.currentHP - currentPlayer.power <=0) return
 			setPlayerDamaged(true);
 			setTimeout(() => {
 				setPlayerDamaged(false);
