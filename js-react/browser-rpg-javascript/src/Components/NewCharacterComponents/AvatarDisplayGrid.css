@@ -53,11 +53,11 @@
   font-size: 16px
 }
 
-#spending-container, h3 {
+.spending-container, h3 {
   padding: 10px;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  color: red;
+  color:limegreen;
   font-size: 20px;
   text-shadow: 2px 2px 0px black;
 }
@@ -82,6 +82,7 @@ input[type="number"] {
   color: black;
   background-color: mediumseagreen;
   border: none;
+  border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -107,6 +108,7 @@ input[type="number"] {
   color: black;
   background-color: crimson;
   border: none;
+  border-radius: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -121,3 +123,69 @@ input[type="number"] {
 	transform: translateY(-7px);
 }
 
+.power-container {
+  padding: 10px;
+  margin-right: 3%;
+}
+
+#create-character {
+  width: 190px;
+  height: 40px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-weight: 500;
+  color: black;
+  background-color: mediumseagreen;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin: 10px;
+}
+
+#create-character:hover {
+  background-color: #2ee59d;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: black;
+	transform: translateY(-7px);
+}
+
+#fight-button {
+  width: 300px;
+  height: 50px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-weight: 500;
+  color: black;
+  background-color: crimson;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+#fight-button:hover {
+  background-color: #2ee59d;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: white;
+	transform: translateY(-7px);
+}
+
+#player-character-container {
+  padding: 20px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  color: mediumseagreen;
+  font-size: 10px;
+  text-shadow: 2px 2px 0px black;
+}

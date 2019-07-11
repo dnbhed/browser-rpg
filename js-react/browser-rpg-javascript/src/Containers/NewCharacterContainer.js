@@ -90,9 +90,9 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 
 				
 
-				<div id="spending-container">
+				<div className="spending-container">
 				<h3 id="points-to-spend">Points to spend: {points}</h3>
-
+				<div>
 				<label>HP:</label>
 				<input id="hp" type="number" value={hp} readOnly={true} />
 				<button className="increment-button" onClick={spendPointsOnHP}>
@@ -101,6 +101,8 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 				<button className="decrease-button" onClick={removePointsFromHP}>
 					remove 5
 				</button>
+				</div>
+				<div className="power-container">
 				<label>Power:</label>
 				<input id="power" type="number" value={power} readOnly={true} />
 				<button className="increment-button" onClick={spendPointsOnPower}>
@@ -110,17 +112,20 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 					remove 5
 				</button>
 				</div>
-				
-
-				<input type="submit" value="Create Character" />
+				</div>
+				<div>
+				<input id="create-character" type="submit" value="Create Character" />
+				</div>
 			</form>
-			<button id="start-game-button">
-				<Link to="/battle">FIGHT</Link>
-			</button>
+			<div>
 			<CurrentPlayerCharacter
 				currentPlayer={currentPlayer}
 				currentCharacter={currentCharacter}
 			/>
+			</div>
+			<div>
+				<Link to="/battle"><button id="fight-button">FIGHT!</button></Link>
+			</div>
 		</div>
 	);
 };

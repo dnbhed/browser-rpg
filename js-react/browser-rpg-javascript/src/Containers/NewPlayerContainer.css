@@ -1,5 +1,5 @@
 .create-new-player {
-    padding: 20px;
+    padding: 30px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -44,7 +44,8 @@ input[type="submit"] {
 	font-weight: 500;
 	color: darkcyan;
 	background-color: rgb(77, 36, 134);
-	border: none;
+    border: none;
+    border-radius: 5px;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
@@ -84,11 +85,12 @@ select {
 	color: darkcyan;
 	background-color: rgb(77, 36, 134);
 	border: none;
-	border-radius: 45px;
+	border-radius: 5px;
 	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease 0s;
 	cursor: pointer;
-	outline: none;
+    outline: none;
+    margin: 10px;
 }
 
   .confirm-player:hover {
