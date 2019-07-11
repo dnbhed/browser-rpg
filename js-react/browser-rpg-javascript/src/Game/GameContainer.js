@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import StartScreenContainer from '../Containers/StartScreenContainer'
 import NewCharacterContainer from '../Containers/NewCharacterContainer'
-import PlayerSelectCharacterContainer from '../Containers/PlayerSelectCharacterContainer'
 import BattleContainer from '../Containers/BattleContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import EndGameContainer from '../Containers/EndGameContainer';
@@ -242,7 +241,6 @@ class GameContainer extends Component{
                             changeCharacter={this.handleCurrentCharacterChange}
                         />}
                         />
-                    <Route exact path="/select-character-create-character" component={PlayerSelectCharacterContainer} />
                     <Route exact path="/battle" 
                         render={(props) => <BattleContainer {...props}
                         currentPlayer={this.state.currentPlayer}
