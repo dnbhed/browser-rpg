@@ -64,7 +64,6 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 
 	return (
 		<div className="new-character-container">
-            <CharacterSelector characters={characters}  currentPlayer={currentPlayer} changeCharacter={changeCharacter}/>
 			<AvatarDisplay handleClick={handleSpriteChange} />
 			<audio src={characterCreation} autoPlay loop={true} />
             <h2 className="sprite-selected">Sprite Selected</h2>
@@ -117,6 +116,7 @@ const NewCharacterContainer = ({handleSubmit, currentPlayer, characters, current
 				<input id="create-character" type="submit" value="Create Character" />
 				</div>
 			</form>
+            <CharacterSelector characters={characters}  currentPlayer={currentPlayer} changeCharacter={changeCharacter}/>
 			<div>
 			<CurrentPlayerCharacter
 				currentPlayer={currentPlayer}
