@@ -1,0 +1,15 @@
+#player-character-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#player-title {
+	grid-column: 1;
+	grid-row: 1;
+}
+#character-title {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+
